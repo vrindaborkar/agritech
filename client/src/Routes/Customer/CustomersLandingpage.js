@@ -27,7 +27,9 @@ const CustomersLandingpage = () => {
       </Divider>
       <div className="live-market">
         <div className="market">
+          <div className='market_img'>
           <img src="https://media.timeout.com/images/105263065/750/422/image.jpg" />
+          </div>
           <h5>Market Name</h5>
           <p>00:00 am - 00:00 pm</p>
           <div className="btn-holder">
@@ -36,7 +38,9 @@ const CustomersLandingpage = () => {
           </div>
         </div>
         <div className="market">
+        <div className='market_img'>
           <img src="https://media.timeout.com/images/105263065/750/422/image.jpg" />
+          </div>
           <h5>Market Name</h5>
           <p>00:00 am - 00:00 pm</p>
           <div className="btn-holder">
@@ -45,7 +49,9 @@ const CustomersLandingpage = () => {
           </div>
         </div>
         <div className="market">
+        <div className='market_img'>
           <img src="https://media.timeout.com/images/105263065/750/422/image.jpg" />
+          </div>
           <h5>Market Name</h5>
           <p>00:00 am - 00:00 pm</p>
           <div className="btn-holder">
@@ -105,29 +111,68 @@ const CustomersLandingpage = () => {
           />
         </div>
       </div>
-
-      
       <Divider className="divider" textAlign="left">
         Top Selling Products
       </Divider>
+      <ul className='product-list'>
+        <li>
       <div className="top-product">
         <div className="product">
           <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/11/carrots-953655d.jpg" />
-          <h5>Carrots</h5>
+          </div>
+          <div class="shadow"></div>
+          {/* <h5>Carrots</h5> */}
         </div>
+        <h5 className='product_name'>Carrots</h5>
+        </li>
+
+      
+      <li>
+      <div className="top-product">
         <div className="product">
           <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/11/carrots-953655d.jpg" />
-          <h5>Carrots</h5>
-        </div>
+          </div>
+          <div class="shadow"></div>
+          {/* <h5>Carrots</h5> */}
+        </div> 
+        <h5 className='product_name'>Carrots</h5>
+      </li>
+
+      <li>
+        <div className="top-product">
         <div className="product">
           <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/11/carrots-953655d.jpg" />
-          <h5>Carrots</h5>
+          </div>
+          <div class="shadow"></div>
+          {/* <h5>Carrots</h5> */}
         </div>
+        <h5 className='product_name'>Carrots</h5>
+        </li>
+      
+        <li>
+        <div className="top-product">
         <div className="product">
           <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/11/carrots-953655d.jpg" />
-          <h5>Carrots</h5>
+          </div>
+          <div class="shadow"></div>
+          {/* <h5>Carrots</h5> */}
         </div>
-      </div>
+        <h5 className='product_name'>Carrots</h5>
+        </li>
+
+        <li>
+        <div className="top-product">
+        <div className="product">
+          <img src="https://images.immediate.co.uk/production/volatile/sites/30/2021/11/carrots-953655d.jpg" />
+          </div>
+          <div class="shadow"></div>
+          {/* <h5>Carrots</h5> */}
+        </div>
+        <h5 className='product_name'>Carrots</h5>
+        </li>
+
+        </ul>
+
       <div className="banner-carousel-container">
         <BannerCarousel/>
       </div>
