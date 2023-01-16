@@ -26,5 +26,14 @@
     "razorpay": "^2.8.3",
     "react-router-dom": "^6.4.4",
     "twilio": "^3.84.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrindaborkar/wingrow_twilio.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/vrindaborkar/wingrow_twilio/issues"
+  },
+  "homepage": "https://github.com/vrindaborkar/wingrow_twilio#readme"
 }

@@ -45,6 +45,7 @@ exports.signup = async(req , res , next)=>{
   
 
 exports.signin = (req, res) => {
+  console.log("hello inside signin")
     User.findOne({
       phone: req.body.phone
     })
@@ -58,17 +59,17 @@ exports.signin = (req, res) => {
           return res.status(404).send({ message: "User Not found." });
         }
   
-        var passwordIsValid = bcrypt.compareSync(
-          req.body.password,
-          user.password
-        );
+        // var passwordIsValid = bcrypt.compareSync(
+        //   req.body.password,
+        //   user.password
+        // );
   
-        if (!passwordIsValid) {
-          return res.status(401).send({
-            accessToken: null,
-            message: "Invalid Password!"
-          });
-        }
+        // if (!passwordIsValid) {
+        //   return res.status(401).send({
+        //     accessToken: null,
+        //     message: "Invalid Password!"
+        //   });
+        // }
   
         var token = jwt.sign({ id: user.id }, config.secret, {
           expiresIn: 86400 // 24 hours

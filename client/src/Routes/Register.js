@@ -13,6 +13,8 @@ import { WithContext as ReactTags } from "react-tag-input";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import firebase from "./firebase";
+
 const user = AuthService.getCurrentUser();
 
 const KeyCodes = {
@@ -72,11 +74,11 @@ export default function Register() {
       };
     });
   };
-
   const handleSubmit = (event) => {
+    console.log("inside handleSubmit")
     seterror("");
     event.preventDefault();
-    const { phone, firstname, lastname, farmertype, type, password } = data;
+    const { phone, firstname, lastname, farmertype, type } = data;
 
     if (!phone.match("[0-9]{10}")) {
       seterror("Please provide valid phone number");
@@ -84,8 +86,6 @@ export default function Register() {
       seterror("Please provide valid first and last name");
     } else if (type.length === 0) {
       seterror("Please select type");
-    } else if (password.length < 6) {
-      seterror("password must be greater than 6 characters");
     } else if (type === "farmer" && farmertype.length === 0) {
       seterror("select producer type");
     } else if (type === "farmer" && tags.length === 0) {
@@ -147,6 +147,145 @@ export default function Register() {
       );
     }
   };
+  const configureCaptcha = () => {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+      "sign-in-button",
+      {
+        size: "invisible",
+        callback: (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          onSignInSubmit();
+          console.log("Recaptcha Verified");
+        },
+        defaultCountry: "IN",
+      }
+    );
+  };
+
+  const onSignInSubmit = (e) => {
+    e.preventDefault();
+    console.log("here")
+    configureCaptcha();
+
+    const phoneNumber = "+91" +  data.phone;
+    // // console.log(values.mobile)
+    // // const phone = values.mobile
+    // const phoneNumber = "+91" + mobile
+    console.log(phoneNumber);
+
+    const appVerifier = window.recaptchaVerifier;
+    firebase
+      .auth()
+      .signInWithPhoneNumber(phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        // SMS sent. Prompt user to type the code from the message, then sign the
+        // user in with confirmationResult.confirm(code).
+        window.confirmationResult = confirmationResult;
+        console.log("OTP has been sent");
+        // ...
+      })
+      .catch((error) => {
+        // Error; SMS not sent
+        // ...
+        console.log("SMS not sent");
+      });
+  };
+  const onSubmitOTP = (e) => {
+    e.preventDefault();
+    const code = data.password;
+    console.log(code);
+    window.confirmationResult
+      .confirm(code)
+      .then((result) => {
+        // User signed in successfully.
+        // const user = result.user;
+        // console.log(JSON.stringify(user));
+       // alert("User is verified");
+        //window.location.href = "/newpassword";
+        //handleSubmit()
+        console.log("inside handleSubmit")
+        seterror("");
+       
+        const { phone, firstname, lastname, farmertype, type } = data;
+    
+        if (!phone.match("[0-9]{10}")) {
+          seterror("Please provide valid phone number");
+        } else if (firstname.length === 0 && lastname.length === 0) {
+          seterror("Please provide valid first and last name");
+        } else if (type.length === 0) {
+          seterror("Please select type");
+        } else if (type === "farmer" && farmertype.length === 0) {
+          seterror("select producer type");
+        } else if (type === "farmer" && tags.length === 0) {
+          seterror("select atleast one commodity and press enter");
+        } else {
+          seterror("no error");
+          setLoading(true);
+          AuthService.register(
+            data.phone,
+            data.password,
+            data.firstname,
+            data.lastname,
+            data.type,
+            data.farmertype,
+            data.address,
+            tags
+          ).then(
+            () => {
+              toast.success("Registration successful!", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+              setTimeout(() => {
+                navigate("/registeration-successfull");
+                window.location.reload();
+              }, 1000);
+            },
+            (error) => {
+              toast.warn("User Already Exists", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+              setData({
+                phone: "",
+                password: "",
+                firstname: "",
+                lastname: "",
+                type: "",
+                farmertype: "",
+                address: "",
+              });
+              setTimeout(() => {
+                navigate("/login");
+                window.location.reload();
+              }, 1000);
+            }
+          );
+        }
+      
+        // ...
+      })
+      .catch((error) => {
+        // User couldn't sign in (bad verification code?)
+        // ...
+        console.log("erroe in sumbitotp")
+      });
+  };
+ 
+
+  
 
   return (
     <div className="authContainer">
@@ -176,9 +315,10 @@ export default function Register() {
             className="register_details"
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={onSignInSubmit}
             sx={{ mt: 3 }}
           >
+            <div id="sign-in-button"></div>
             <img className="form-logo" src="./logo.png"  alt="form-logo" />
             <Typography className="form-heading" component="h1" variant="h5">
               Welcome to Wingrowagritech
@@ -238,24 +378,7 @@ export default function Register() {
                   className="textfield"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  value={data.password}
-                  onChange={handleChange}
-                  autoComplete="new-password"
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
+              
               <Grid item xs={12}>
                 <FormControl
                   className="textfield"
@@ -418,7 +541,7 @@ export default function Register() {
               size="large"
               sx={{ mt: 3, mb: 2 }}
             >
-              Register
+              Fetch Otp
             </Button>
             <Grid container justifyContent="center">
               <Grid item>
@@ -428,6 +551,34 @@ export default function Register() {
               </Grid>
             </Grid>
           </form>
+          <form onSubmit={onSubmitOTP}>
+          <Grid item xs={12} sm={6}>
+                <TextField
+                  inputlabelprops={{
+                    style: { fontSize: 14, fontFamily: "monospace" },
+                  }}
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  value={data.password}
+                  onChange={handleChange}
+                  autoComplete="new-password"
+                  color="success"
+                  className="textfield"
+                />
+              </Grid>
+              <button className="forgot-btn" type="submit">
+                Submit OTP
+              </button>
+            </form>
+
+
+
+
+
         </div>
       ) : (
         <Spinner />

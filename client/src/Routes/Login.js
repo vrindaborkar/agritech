@@ -22,7 +22,7 @@ export default function SignIn() {
   const [Loading, setLoading] = useState(false);
   const [data, setData] = useState({
     phone: "",
-    password: "",
+    password: "hello",
   });
 
   const handleChange = (e) => {
@@ -38,7 +38,7 @@ export default function SignIn() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (data.password && data.phone) {
+    if ( data.phone) {
       setLoading(true);
       AuthService.login(data.phone, data.password).then(
         (res) => {
@@ -93,6 +93,7 @@ export default function SignIn() {
           setLoading(false);
         },
         (error) => {
+          console.log(error)
           toast.warn("Login failed", {
             position: "top-center",
             autoClose: 5000,
@@ -174,7 +175,7 @@ export default function SignIn() {
               className="textfield"
               onChange={handleChange}
             />
-            <TextField
+            {/* <TextField
               inputlabelprops={{
                 style: { fontSize: 16, fontFamily: "monospace" },
               }}
@@ -190,7 +191,7 @@ export default function SignIn() {
               color="success"
               className="textfield"
               onChange={handleChange}
-            />
+            /> */}
             <Link className="form-link" to={"/Forgot"} variant="body2">
               Forgot your password?
             </Link>
