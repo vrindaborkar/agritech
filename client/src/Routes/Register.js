@@ -362,22 +362,7 @@ export default function Register() {
                   className="textfield"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Mobile Number"
-                  name="phone"
-                  value={data.phone}
-                  onChange={handleChange}
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
+              
               
               <Grid item xs={12}>
                 <FormControl
@@ -532,6 +517,23 @@ export default function Register() {
                 {error}
               </h3>
             )}
+            <Grid item xs={12} sm={6}>
+                <TextField
+                  inputlabelprops={{
+                    style: { fontSize: 14, fontFamily: "monospace" },
+                  }}
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Mobile Number"
+                  name="phone"
+                  value={data.phone}
+                  onChange={handleChange}
+                  color="success"
+                  className="textfield"
+                />
+              </Grid>
+              
             <Button
               type="submit"
               fullWidth
@@ -583,6 +585,6 @@ export default function Register() {
       ) : (
         <Spinner />
       )}
-    </div>
+    </div>     
   );
 }

@@ -1,11 +1,12 @@
 const express = require('express');
-const client = require('twilio')('ACa84acedb4869f922ee9165fbfcd0a264', '5032f1b952a021c751e2042037fa6b14');
+const client = require('twilio')('ACa84acedb4869f922ee9165fbfcd0a264', '84ceec79b9d7205ba9062308aa95d97c');
 
 
 module.exports = function(app) {
     app.post("/twilio" , (req, res) => {
 
-        // console.log(req.body);
+        
+         //console.log(req.body);
         
             const farmer = req.body.bookingDetails;
             // const phone = req.body.phone;
@@ -13,31 +14,32 @@ module.exports = function(app) {
             // const BookedStalls = req.body.BookedStalls;
             // const stallsBooked = req.body.stallsBooked;
             // const totalAmount = req.body.totalAmount;
+            //address: ${farmer['address']},
 
-            console.log(farmer,"details")
+            console.log("details --> ",farmer)
             const details = `Your Booking Details\n
                             Name: ${farmer['farmer']} ,
                             phone: ${farmer['phone']} ,
                             paymentDetails: ${farmer['paymentDetails']} ,
                             BookedStalls: ${farmer['BookedStalls']} ,
                             stallsBooked: ${farmer['stallsBooked']} ,
-                            address: ${farmer['address']}
                             totalAmount: ${farmer['totalAmount']}
                             `;
-            console.log(details, farmer['phone']);
+            // console.log(details, farmer['phone']);
             
-
+         //var details = "heelloooo";
           
         client.messages.create({
             // $body : "farmer " . $farmer  ,
             
             body : details ,
-            to: '+917498102556',
-            from: '+15139023836'
+            to: '+918888643025',
+            from: '+15005550006'
           }).then(message => console.log(message))
            // here you can implement your fallback code
-           .catch(error => console.log(error))
+           .catch(error => console.log("error:::::::",error.message))
     });
 };
 
 
+// 

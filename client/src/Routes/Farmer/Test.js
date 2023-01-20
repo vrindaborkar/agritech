@@ -71,7 +71,9 @@ function Test({ setbookingDetails , setValue }) {
       (total, item) => item.stallPrice + total,
       0
     );
-
+    
+    console.log(bookedStalls.length);
+    console.log("price" ,price)
     if (bookedStalls.length === 0) {
       toast.warn("Failed to book stalls!", {
         position: "top-right",
@@ -147,6 +149,7 @@ function Test({ setbookingDetails , setValue }) {
                   BookedStalls: stallsBooked,
                   stallsBooked: bookedStalls.length,
                   totalAmount: price,
+                  address :bookedStalls[0].address
                 });
               }
               toast.success("stalls booked successfully!", {
@@ -192,17 +195,27 @@ function Test({ setbookingDetails , setValue }) {
   };
 
   const handleClick = (ev) => {
-  
+    console.log("selected")
+    //console.log(userCurr)
+
+    console.log("booked " ,bookedStalls);
+    console.log("number of seats ",numberOfSeats);
+    console.log(ev.target)
     if (numberOfSeats && ev.target.className !== "booked") {
       const seatsToBook = parseInt(numberOfSeats, 20);
       if (bookedStalls.length <= seatsToBook) {
+
         if (bookedStalls.includes(ev.target.id)) {
+
+          //if already selected then remove it
           const newAvailable = bookedStalls.filter(
             (seat) => seat !== ev.target.id
           );
           setBookedStalls(newAvailable);
         } else if (bookedStalls.length < numberOfSeats) {
           const item = UpdatedData.filter((e) => e._id === ev.target.id);
+          console.log("here booked");
+          //console.log(userCurr)
           setBookedStalls([...bookedStalls, item[0]]);
         } else if (bookedStalls.length === seatsToBook) {
           const item = UpdatedData.filter((e) => e._id === ev.target.id);
@@ -216,9 +229,11 @@ function Test({ setbookingDetails , setValue }) {
   };
 
   const lengthofUpdatedData = UpdatedData?.length;
+  //UpdatedData?.length
   const handleChange = (e , newValue) => {
-    setNumberOfSeats(e.nativeEvent.data);
-    setValue(newValue);
+    //console.log(newValue);
+    setNumberOfSeats(e.target.value);
+    setValue(e.target.value);
   };
 
   return (
@@ -406,7 +421,7 @@ function Test({ setbookingDetails , setValue }) {
               </div>
             ) : (
               <div className="bookStall_btn">
-                <Button>Book Stall</Button>
+                <Button >Book Stall</Button>
               </div>
             )}
           </div>
