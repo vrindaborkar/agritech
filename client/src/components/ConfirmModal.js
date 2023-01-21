@@ -21,7 +21,7 @@ const style = {
   p: 1.5,
 };
 
-export default function ConfirmModal({ confirmBooking }) {
+export default function ConfirmModal({ confirmBooking,setCashOnDelivery }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -29,6 +29,8 @@ export default function ConfirmModal({ confirmBooking }) {
   return (
     <div className="bookStall_btn">
       <Button onClick={handleOpen}>Pay</Button>
+      
+      <Button  onClick={() =>{handleOpen(); setCashOnDelivery(true)}} >Pay On Delivery</Button>
       <Modal
         open={open}
         onClose={handleClose}

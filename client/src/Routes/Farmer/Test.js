@@ -33,6 +33,7 @@ function Test({ setbookingDetails , setValue }) {
   const [value, setvalue] = useState();
   const [alreadyBooked, setAlreadyBooked] = useState();
   const [open, setOpen] = useState();
+  const[cashOnDelivery,setCashOnDelivery] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -65,8 +66,99 @@ function Test({ setbookingDetails , setValue }) {
     const res = data && data.filter((e) => e.location === `${Id}`);
     setUpdatedData(res);
   }, [Id, data]);
+  
+  const confirmBookingCash = async(e) =>{
+    const price = bookedStalls.reduce(
+      (total, item) => item.stallPrice + total,
+      0
+    );
+    console.log(bookedStalls.length);
+    console.log("price" ,price)
+    if (bookedStalls.length === 0) {
+      toast.warn("Failed to book stalls!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return;
+    }
+    let bookedStats = bookedStalls.toString();
+    const responseData = {
+      location: Id,
+      bookedStalls: bookedStalls,
+      bookedBy: userCurr.id,
+      bookedAt: dayjs(Date.now()).format("YYYY-MM-DD"),
+      isBooked: true,
+    };
+
+    const stallsBooked = [];
+    bookedStalls.forEach((e) => {
+      stallsBooked.push(e.stallName);
+    });
+
+    // const price = bookedStalls.reduce(
+    //   (total, item) => item.stallPrice + total,
+    //   0
+    // );
+    const Url = "https://wingrowmarket.onrender.com/bookedstalls";
+    const orderId="123"
+    axios
+      .post(Url, responseData, { headers: authHeader() })
+      .then((response) => {
+        const { data } = response;
+        if (data) {
+          setbookingDetails({
+            farmer: userCurr.firstname + " " + userCurr.lastname,
+            phone: userCurr.phone,
+            paymentDetails: orderId,
+            BookedStalls: stallsBooked,
+            stallsBooked: bookedStalls.length,
+            totalAmount: price,
+            address :bookedStalls[0].address
+          });
+        }
+        toast.success("stalls booked successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          navigate("../ticket");
+        }, 1000);
+      })
+      .catch((error) => {
+        toast.warn("Failed to book stalls!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setBookedStalls([]);
+        setNumberOfSeats(0);
+      });
+
+  }
+
 
   const confirmBooking = async (e) => {
+    if(cashOnDelivery){
+      confirmBookingCash();
+    }
+    else{
     const price = bookedStalls.reduce(
       (total, item) => item.stallPrice + total,
       0
@@ -98,6 +190,7 @@ function Test({ setbookingDetails , setValue }) {
     } catch (error) {
       console.log(error);
     }
+  }
   };
 
   const initPayment = (data) => {
@@ -109,14 +202,22 @@ function Test({ setbookingDetails , setValue }) {
       order_id: data.id,
       bookedStalls: bookedStats,
       description: "Wingrow Agritech",
-
+      
       handler: async (response) => {
+        
         try {
-          const verifyUrl = "https://wingrowmarket.onrender.com/verify";
-          const { data } = await axios.post(verifyUrl, response, {
+
+          var orderId;
+          if(!cashOnDelivery){
+            const verifyUrl = "https://wingrowmarket.onrender.com/verify";
+            const { data } = await axios.post(verifyUrl, response, {
             headers: authHeader(),
           });
-          const orderId = data.orderId;
+           orderId = data.orderId;
+          }else{
+            orderId = "123"
+          }
+          
 
           const responseData = {
             location: Id,
@@ -417,7 +518,7 @@ function Test({ setbookingDetails , setValue }) {
             </Grid>
             {numberOfSeats !== 0 && bookedStalls.length !== 0 ? (
               <div className="modalbtn">
-                <ConfirmModal confirmBooking={confirmBooking} />
+                <ConfirmModal setCashOnDelivery={setCashOnDelivery} confirmBooking={confirmBooking} />
               </div>
             ) : (
               <div className="bookStall_btn">

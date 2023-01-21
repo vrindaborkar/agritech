@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+//import Select from "@mui/material/Select";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { WithContext as ReactTags } from "react-tag-input";
@@ -14,15 +14,16 @@ import Spinner from "../components/Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import firebase from "./firebase";
-
+import Select from 'react-select';
 const user = AuthService.getCurrentUser();
 
 const KeyCodes = {
   comma: 188,
   enter: 13,
+  space:49
 };
 
-const delimiters = [KeyCodes.comma, KeyCodes.enter];
+const delimiters = [KeyCodes.comma, KeyCodes.enter,KeyCodes.space];
 
 export default function Register() {
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function Register() {
   });
 
   const [tags, setTags] = React.useState([]);
+  const[tag1,setTag] = useState();
   const [error, seterror] = useState("");
 
   const handleDelete = (i) => {
@@ -52,7 +54,9 @@ export default function Register() {
   };
 
   const handleAddition = (tag) => {
+    console.log("here",tag1);
     setTags([...tags, tag]);
+    setTag('');
   };
 
   const handleDrag = (tag, currPos, newPos) => {
@@ -283,7 +287,12 @@ export default function Register() {
         console.log("erroe in sumbitotp")
       });
   };
- 
+  const [isClearable, setIsClearable] = useState(true);
+  const [isSearchable, setIsSearchable] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isRtl, setIsRtl] = useState(false);
+
 
   
 
@@ -492,7 +501,8 @@ export default function Register() {
                 />
               </Grid>
               {data.type === "farmer" && (
-                <Grid item xs={12}>
+                
+                <Grid item xs={6}  >
                   <ReactTags
                     InputProps={{ style: { fontSize: 15 } }}
                     inputlabelprops={{ style: { fontSize: 15 } }}
@@ -502,12 +512,17 @@ export default function Register() {
                     handleAddition={handleAddition}
                     handleDrag={handleDrag}
                     inputFieldPosition="bottom"
+                    handleInputChange = {console.log("hello-----",tags)}
                     autocomplete
                     color="success" 
               className='textfield'
                     placeholder="Add Selling Products Names and press enter"
                   />
+                  
+
                 </Grid>
+                
+                
               )}
             </Grid>
             {error !== "no error" && (
@@ -517,7 +532,7 @@ export default function Register() {
                 {error}
               </h3>
             )}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} >
                 <TextField
                   inputlabelprops={{
                     style: { fontSize: 14, fontFamily: "monospace" },
@@ -533,8 +548,8 @@ export default function Register() {
                   className="textfield"
                 />
               </Grid>
-              
-            <Button
+              <Grid  >
+              <Button 
               type="submit"
               fullWidth
               className="signup-btn"
@@ -545,6 +560,8 @@ export default function Register() {
             >
               Fetch Otp
             </Button>
+          </Grid>
+            
             <Grid container justifyContent="center">
               <Grid item>
                 <Link className="form-link" to="/login" variant="body2">
@@ -562,7 +579,7 @@ export default function Register() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Enter OTP"
                   type="password"
                   id="password"
                   value={data.password}
@@ -585,6 +602,6 @@ export default function Register() {
       ) : (
         <Spinner />
       )}
-    </div>     
+    </div>
   );
 }
