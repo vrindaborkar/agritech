@@ -32,8 +32,11 @@ function Test({ setbookingDetails , setValue }) {
   const { Id } = useParams();
   const [value, setvalue] = useState();
   const [alreadyBooked, setAlreadyBooked] = useState();
+  const[alreadyBookedLocataion,setAlreadyBookedLocation] = useState(0);
   const [open, setOpen] = useState();
   const[cashOnDelivery,setCashOnDelivery] = useState(false);
+  const[totalStall,setTotalStalls] = useState(0);
+  const[available,setAvailable] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -43,11 +46,15 @@ function Test({ setbookingDetails , setValue }) {
     });
 
     FarmerService.getBookedStalls().then((response) => {
-      setAlreadyBooked(response.data);
+     const res = response.data && response.data.filter((e) => e.location === `${Id}`);
+     setAlreadyBooked(response.data);
+     setAlreadyBookedLocation(res.length);
+     
+      console.log("already booked",res.length);
+    
     });
     handleOpen(true);
   }, []);
-
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -65,6 +72,17 @@ function Test({ setbookingDetails , setValue }) {
   useEffect(() => {
     const res = data && data.filter((e) => e.location === `${Id}`);
     setUpdatedData(res);
+    console.log("Data--->",data);
+
+    if(UpdatedData)
+    {
+      //setAvailable(UpdatedData.length);
+      setTotalStalls(UpdatedData.length)
+      
+      setAvailable(totalStall-alreadyBookedLocataion)
+    }
+    
+    
   }, [Id, data]);
   
   const confirmBookingCash = async(e) =>{
@@ -152,7 +170,6 @@ function Test({ setbookingDetails , setValue }) {
       });
 
   }
-
 
   const confirmBooking = async (e) => {
     if(cashOnDelivery){
@@ -296,7 +313,7 @@ function Test({ setbookingDetails , setValue }) {
   };
 
   const handleClick = (ev) => {
-    console.log("selected")
+    console.log("already ",alreadyBooked)
     //console.log(userCurr)
 
     console.log("booked " ,bookedStalls);
@@ -313,9 +330,11 @@ function Test({ setbookingDetails , setValue }) {
             (seat) => seat !== ev.target.id
           );
           setBookedStalls(newAvailable);
+          setAvailable(available + 1);
         } else if (bookedStalls.length < numberOfSeats) {
           const item = UpdatedData.filter((e) => e._id === ev.target.id);
           console.log("here booked");
+          setAvailable(available - 1);
           //console.log(userCurr)
           setBookedStalls([...bookedStalls, item[0]]);
         } else if (bookedStalls.length === seatsToBook) {
@@ -378,9 +397,9 @@ function Test({ setbookingDetails , setValue }) {
               <Grid className="stalls-count-cantainer">
                 <Grid>
                   <div className="stalls-count-div">
-                    <Typography className="count">Total Stalls :00</Typography>
+                    <Typography className="count">Total Stalls :{totalStall}</Typography>
                     <Typography className="count">
-                      Available Stalls :00
+                      Available Stalls :{available}
                     </Typography>
                   </div>
                 </Grid>
@@ -535,3 +554,5 @@ function Test({ setbookingDetails , setValue }) {
 }
 
 export default Test;
+
+
