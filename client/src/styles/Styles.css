@@ -751,13 +751,13 @@ input {
 }
 
 .forgot-btn {
-  width: 140px !important;
+  width: 180px !important;
   height: 50px;
   color: #fff;
   border: none;
   background: linear-gradient(105.42deg, #3AA54B 33.61%, #107C55 80.31%);
   border-radius: 50px !important;
-  margin: 0 auto 10px;
+  margin: 5px auto 10px;
 }
 
 .congrats-container{

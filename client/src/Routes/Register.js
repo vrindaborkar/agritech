@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-//import Select from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 import { WithContext as ReactTags } from "react-tag-input";
@@ -14,7 +14,7 @@ import Spinner from "../components/Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import firebase from "./firebase";
-import Select from 'react-select';
+//import Select from 'react-select';
 const user = AuthService.getCurrentUser();
 
 const KeyCodes = {
@@ -25,7 +25,7 @@ const KeyCodes = {
 
 const delimiters = [KeyCodes.comma, KeyCodes.enter,KeyCodes.space];
 
-export default function Register() {
+export default function Register({t,languages}) {
   useEffect(() => {
     if (!!user) {
       AuthService.logout();
@@ -371,6 +371,22 @@ export default function Register() {
                   className="textfield"
                 />
               </Grid>
+              <Grid item xs={6}  >
+                <TextField
+                  inputlabelprops={{
+                    style: { fontSize: 14, fontFamily: "monospace" },
+                  }}
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Mobile Number"
+                  name="phone"
+                  value={data.phone}
+                  onChange={handleChange}
+                  color="success"
+                  className="textfield"
+                />
+              </Grid>
               
               
               <Grid item xs={12}>
@@ -532,22 +548,7 @@ export default function Register() {
                 {error}
               </h3>
             )}
-            <Grid item xs={12} sm={6} >
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Mobile Number"
-                  name="phone"
-                  value={data.phone}
-                  onChange={handleChange}
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
+            
               <Grid  >
               <Button 
               type="submit"
@@ -590,7 +591,7 @@ export default function Register() {
                 />
               </Grid>
               <button className="forgot-btn" type="submit">
-                Submit OTP
+                Submit OTP & Register
               </button>
             </form>
 
