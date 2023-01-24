@@ -46,11 +46,13 @@ li {
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: rgb(174, 238, 193);
+  background-color: white;
   height: 13vh;
   font-size: 2rem;
   display: grid;
   align-items: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
   grid-template-columns: 2rem 1fr 3fr 1rem 1rem;
 }
 
@@ -301,7 +303,7 @@ li {
     width: 11vw;
   }
 
-  .signup-btn{
+  .signup-btn {
     background: linear-gradient(91.3deg, #E03538 17.31%, #C4094C 88.09%) !important;
   }
 }
@@ -317,7 +319,7 @@ li {
   }
 
 
-  .signup-btn{
+  .signup-btn {
     background: linear-gradient(91.3deg, #E03538 17.31%, #C4094C 88.09%) !important;
   }
 
@@ -366,7 +368,8 @@ li {
   .main_container {
     height: 90vh;
   }
-  .signup-btn{
+
+  .signup-btn {
     background: linear-gradient(91.3deg, #E03538 17.31%, #C4094C 88.09%) !important;
   }
 
@@ -431,7 +434,7 @@ li {
     box-shadow: rgba(50, 50, 93, 0.1) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.1) 0px 30px 60px -30px;
     justify-content: center;
-}
+  }
 
   .mobile-menu-link ul {
     height: 100%;
@@ -600,7 +603,7 @@ li {
     z-index: -1;
   }
 
- .login_details {
+  .login_details {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -639,13 +642,13 @@ li {
   text-decoration: none !important;
 }
 
-.signupWithUs{
+.signupWithUs {
   color: red;
   margin: 0 0 0 5px;
- 
+
 }
 
-.login{
+.login {
   color: green;
   text-decoration: underline !important;
 }
@@ -655,7 +658,7 @@ li {
     border-radius: 30px;
   }
 
-  .signup-btn{
+  .signup-btn {
     height: 40px;
     border-radius: 20px !important;
     background: linear-gradient(91.3deg, #E03538 17.31%, #C4094C 88.09%);
@@ -666,8 +669,8 @@ li {
     height: 40px;
     border-radius: 20px !important;
     background: linear-gradient(90deg,
-    rgba(7, 149, 43, 1) 41%,
-    rgba(13, 106, 2, 1) 100%);
+        rgba(7, 149, 43, 1) 41%,
+        rgba(13, 106, 2, 1) 100%);
   }
 
   .box {
@@ -696,7 +699,7 @@ li {
   margin: auto !important;
 }
 
-label{
+label {
   font-size: 13px !important;
 }
 
@@ -727,17 +730,17 @@ input {
   justify-content: center;
   padding: 20px;
   background-color: #fff;
-  box-shadow: -4px 12px 40px -12px rgba(3,179,80,0.49);
--webkit-box-shadow: -4px 12px 40px -12px rgba(3,179,80,0.49);
--moz-box-shadow: -4px 12px 40px -12px rgba(3,179,80,0.49);
+  box-shadow: -4px 12px 40px -12px rgba(3, 179, 80, 0.49);
+  -webkit-box-shadow: -4px 12px 40px -12px rgba(3, 179, 80, 0.49);
+  -moz-box-shadow: -4px 12px 40px -12px rgba(3, 179, 80, 0.49);
 }
 
-.forgot-form-inner h3{
+.forgot-form-inner h3 {
   font-size: 20px;
   font-weight: 400;
   /* font-family: 'Roboto', sans-serif; */
   font-family: 'Handlee', cursive;
-  margin:  0 0 10px;
+  margin: 0 0 10px;
 }
 
 .forgot-input {
@@ -751,16 +754,16 @@ input {
 }
 
 .forgot-btn {
-  width: 180px !important;
+  width: 140px !important;
   height: 50px;
   color: #fff;
   border: none;
   background: linear-gradient(105.42deg, #3AA54B 33.61%, #107C55 80.31%);
   border-radius: 50px !important;
-  margin: 5px auto 10px;
+  margin: 0 auto 10px;
 }
 
-.congrats-container{
+.congrats-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -768,24 +771,24 @@ input {
   height: 90vh;
 }
 
-.congrats{
+.congrats {
   text-align: center;
 }
 
-.congrats-heading{
-font-style: normal;
-font-weight: 700;
-font-size: 8rem;
-line-height: 128.91%;
-/* font-family: 'Roboto', sans-serif; */
-font-family: 'Handlee', cursive;
-margin: 10px;
-/* background: linear-gradient(105.42deg, #3AA54B 33.61%, #107C55 80.31%); */
-/* -webkit-background-clip: text ; */
--webkit-text-fill-color:#07952b;
+.congrats-heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 8rem;
+  line-height: 128.91%;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Handlee', cursive;
+  margin: 10px;
+  /* background: linear-gradient(105.42deg, #3AA54B 33.61%, #107C55 80.31%); */
+  /* -webkit-background-clip: text ; */
+  -webkit-text-fill-color: #07952b;
 }
 
-.congrats-wewin{
+.congrats-wewin {
   font-style: normal;
   font-weight: 700;
   font-size: 4rem;
@@ -793,10 +796,10 @@ margin: 10px;
   /* font-family: 'Roboto', sans-serif; */
   font-family: 'Handlee', cursive;
   margin: 10px;
-  -webkit-text-fill-color:#C4094C;
-  } 
+  -webkit-text-fill-color: #C4094C;
+}
 
-.next-int{
+.next-int {
   /* font-family: 'Roboto', sans-serif; */
   font-family: 'Handlee', cursive;
   font-style: normal;
@@ -804,10 +807,10 @@ margin: 10px;
   font-size: 2rem;
   line-height: 128.91%;
   margin: 10px;
-/* text-transform: capitalize; */
+  /* text-transform: capitalize; */
 }
 
-.next{
+.next {
   width: 180px;
   height: 45px;
   background: linear-gradient(105.42deg, #3AA54B 33.61%, #107C55 80.31%);
@@ -817,20 +820,20 @@ margin: 10px;
   border-radius: 30px !important;
 }
 
-.congrats-img{
+.congrats-img {
   width: 600px;
 }
 
-.resetPassword-heading{
+.resetPassword-heading {
   font-size: 40px;
   margin-bottom: 30px;
 }
 
-.restpassword-img{
+.restpassword-img {
   width: 200px;
 }
 
-.feedback-container{
+.feedback-container {
   width: 100%;
   height: 70vh;
   display: flex;
@@ -853,13 +856,13 @@ margin: 10px;
   border-radius: 40px;
 }
 
-.bar-graph{
+.bar-graph {
   width: 60%;
   margin: auto;
   height: 50%;
 }
 
-.offers_modal_component{
+.offers_modal_component {
   width: 100%;
   height: 100%;
   display: flex;
@@ -867,7 +870,7 @@ margin: 10px;
   flex-wrap: wrap;
 }
 
-.offer-box{
+.offer-box {
   width: fit-content;
   height: fit-content;
   border: 1px solid rgba(58, 165, 75, 1);
@@ -878,22 +881,22 @@ margin: 10px;
 
 .offer-box p {
   font-size: 20px;
-    font-weight: 700;
-    padding: 5px;
-    border-bottom: 1px solid grey;
-    margin: 5px;
-} 
+  font-weight: 700;
+  padding: 5px;
+  border-bottom: 1px solid grey;
+  margin: 5px;
+}
 
-.offer-box div{
+.offer-box div {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-.offer-box h6:nth-child(1){
-  border-right: 1px solid grey ;
+.offer-box h6:nth-child(1) {
+  border-right: 1px solid grey;
 }
 
-.offer-box h6{
+.offer-box h6 {
   font-size: 20px;
   font-weight: 500;
   display: block;
@@ -911,79 +914,89 @@ margin: 10px;
   .offer-box {
     padding: 5px;
     margin: 5px;
-}
-.offer-box p {
-  font-size: 13px;
-  padding: 5px;
-  margin: 5px;
-}
+  }
 
-.offer-box h6 {
-  font-size: 15px;
-  padding: 5px 5px 0 0;
-  margin: 5px;
-}
+  .offer-box p {
+    font-size: 13px;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .offer-box h6 {
+    font-size: 15px;
+    padding: 5px 5px 0 0;
+    margin: 5px;
+  }
+
   .forgot-main-container {
     height: 92vh;
-}
-.forgot-form-inner h3 {
-  font-size: 15px;
-}
+  }
 
-.forgot-input {
-  font-size: 14px;
-  padding: 15px 40px 15px 20px;
-  border-radius: 30px;
-}
-.forgot-btn {
-  width: 110px;
-  height: 40px;
-}
-.forgot-form-outer {
-  width: 310px;
-  height: fit-content;
-}
-.congrats-img {
-  width: 400px;
-}
-.congrats-heading {
-  font-size: 5rem;
-}
-.next-int {
+  .forgot-form-inner h3 {
+    font-size: 15px;
+  }
+
+  .forgot-input {
+    font-size: 14px;
+    padding: 15px 40px 15px 20px;
+    border-radius: 30px;
+  }
+
+  .forgot-btn {
+    width: 110px;
+    height: 40px;
+  }
+
+  .forgot-form-outer {
+    width: 310px;
+    height: fit-content;
+  }
+
+  .congrats-img {
+    width: 400px;
+  }
+
+  .congrats-heading {
+    font-size: 5rem;
+  }
+
+  .next-int {
     font-size: 1.5rem;
-}
-.divider{
-  width: 80%;
-  margin: auto;
-}
-.next {
-  width: 150px;
-  height: 40px;
-  font-size: 15px !important;
-}
+  }
 
-.resetPassword-heading {
-  font-size: 25px;
-  margin-bottom: 25px;
-}
+  .divider {
+    width: 80%;
+    margin: auto;
+  }
 
-.restpassword-img {
-  width: 150px;
-}
+  .next {
+    width: 150px;
+    height: 40px;
+    font-size: 15px !important;
+  }
 
-.feedback-para {
-  font-size: 15px;
-  text-align: center;
-  line-height: 20px;
-  margin: 0px 0 15px 0;
-}
+  .resetPassword-heading {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
 
-textarea[name="feedback"]{
-  border: 1px solid rgb(169, 169, 169) !important;
+  .restpassword-img {
+    width: 150px;
+  }
+
+  .feedback-para {
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    margin: 0px 0 15px 0;
+  }
+
+  textarea[name="feedback"] {
+    border: 1px solid rgb(169, 169, 169) !important;
     border-radius: 5px !important;
     width: 300px !important;
     min-height: 200px !important;
     font-size: 15px !important;
-}
+  }
 
 }
