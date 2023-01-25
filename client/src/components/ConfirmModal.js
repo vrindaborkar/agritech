@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import "../styles/Test.css";
+import Grid from "@mui/material/Grid";
 // Added
 import { Divider } from "@mui/material";
 
@@ -27,10 +28,32 @@ export default function ConfirmModal({ confirmBooking,setCashOnDelivery }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="bookStall_btn">
+    <div>
+    {/* 
+      <div className="bookStall_btn">
       <Button onClick={handleOpen}>Pay</Button>
       
-      <Button  onClick={() =>{handleOpen(); setCashOnDelivery(true)}} >Pay On Delivery</Button>
+      <Button  onClick={() =>{handleOpen(); setCashOnDelivery(true)}} >Pay On Delivery</Button> */}
+
+      <Grid container alignItems="center" justifyContent="center">
+              <Grid item xs={6}>
+              <div style={{ display: "flex", justifyContent: "center"}}>
+                <Button 
+                onClick={handleOpen}
+                style={{ width: "110px", height: "40px", paddingLeft:'5rem', paddingRight:'5rem', margin:'1rem', color: 'white', background: "linear-gradient(90deg, #07952b 41%, #0d6a02)", borderRadius: "20px", textAlign: "center", marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                PAY
+                </Button>
+                <Button 
+                onClick={() =>{handleOpen(); setCashOnDelivery(true)}}
+                style={{ width: "110px", height: "40px", paddingLeft:'5rem', paddingRight:'5rem', margin:'1rem', color: 'white', background: "linear-gradient(90deg, #07952b 41%, #0d6a02)", borderRadius: "20px", textAlign: "center", marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                PAY ON DELIVERY
+                </Button>
+                </div>
+              </Grid>  
+              </Grid>
+
+
+
       <Modal
         open={open}
         onClose={handleClose}

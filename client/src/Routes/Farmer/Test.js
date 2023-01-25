@@ -540,9 +540,19 @@ function Test({ setbookingDetails , setValue }) {
                 <ConfirmModal setCashOnDelivery={setCashOnDelivery} confirmBooking={confirmBooking} />
               </div>
             ) : (
-              <div className="bookStall_btn">
-                <Button >Book Stall</Button>
-              </div>
+              <Grid container alignItems="center" justifyContent="center">
+              <Grid item xs={6}>
+              <div style={{ display: "flex", justifyContent: "center"}}>
+                <Button 
+                style={{ width: "110px", height: "40px",paddingLeft:'5rem', paddingRight:'5rem', margin:'1rem', color: 'white', background: "linear-gradient(90deg, #07952b 41%, #0d6a02)", borderRadius: "20px", textAlign: "center", marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                PAY
+                </Button>
+                <Button style={{ width: "110px", height: "40px",paddingLeft:'5rem', paddingRight:'5rem', margin:'1rem', color: 'white', background: "linear-gradient(90deg, #07952b 41%, #0d6a02)", borderRadius: "20px", textAlign: "center", marginTop: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                PAY ON DELIVERY
+                </Button>
+                </div>
+              </Grid>  
+              </Grid>
             )}
           </div>
         </div>
