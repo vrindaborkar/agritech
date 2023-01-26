@@ -45,7 +45,7 @@
 .carousel .slide img {
   height: 84vh;
   width: 100%;
-  filter: contrast(0.3);
+  filter: contrast(0.6);
   position: relative;
   
   }
@@ -626,7 +626,7 @@ first_section_btn{
 .carousel .slide img {
   height: 53vh;
    width: 100%;
-  filter: contrast(0.3);
+  filter: contrast(0.6);
     }
 .image-text1 {
   top: 35%;
