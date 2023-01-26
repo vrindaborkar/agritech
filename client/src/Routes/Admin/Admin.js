@@ -48,9 +48,9 @@ const Admin = () => {
           setfilteredOutData(res?.data)
         })
   
-      FarmerService.getcancelledStalls().then(res=>{
-        setCancelledStalls(res?.data)
-      })
+      // FarmerService.getcancelledStalls().then(res=>{
+      //   setCancelledStalls(res?.data)
+      // })
   
         UserService.getFarmers().then(res=>{
           setFarmers(res?.data)
@@ -87,7 +87,7 @@ const Admin = () => {
       salesQty += e.sales_quantity
       salesAmount += e.sales_rate
     });
-  
+    
   
     const handleSearchmarkets = () => {
       const marketresponse = Inward && Inward.filter(e => e.market === market);
@@ -142,7 +142,7 @@ const Admin = () => {
     for(let item of marketsData){
       farmersMarket.push(item)
     }
-  
+    
     const handleRefundDelete = (e) => {
       const id = e.target.id;
       const response = window.confirm("Confirm Refunded?")
@@ -161,6 +161,7 @@ const Admin = () => {
         })
       }
     }
+    
   
   return (
     <Routes>
