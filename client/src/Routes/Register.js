@@ -20,12 +20,12 @@ const user = AuthService.getCurrentUser();
 const KeyCodes = {
   comma: 188,
   enter: 13,
-  space:49
+  space: 49
 };
 
-const delimiters = [KeyCodes.comma, KeyCodes.enter,KeyCodes.space];
+const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.space];
 
-export default function Register({t,languages}) {
+export default function Register({ t, languages }) {
   useEffect(() => {
     if (!!user) {
       AuthService.logout();
@@ -46,7 +46,7 @@ export default function Register({t,languages}) {
   });
 
   const [tags, setTags] = React.useState([]);
-  const[tag1,setTag] = useState();
+  const [tag1, setTag] = useState();
   const [error, seterror] = useState("");
 
   const handleDelete = (i) => {
@@ -54,7 +54,7 @@ export default function Register({t,languages}) {
   };
 
   const handleAddition = (tag) => {
-    console.log("here",tag1);
+    console.log("here", tag1);
     setTags([...tags, tag]);
     setTag('');
   };
@@ -171,7 +171,7 @@ export default function Register({t,languages}) {
     console.log("here")
     configureCaptcha();
 
-    const phoneNumber = "+91" +  data.phone;
+    const phoneNumber = "+91" + data.phone;
     // // console.log(values.mobile)
     // // const phone = values.mobile
     // const phoneNumber = "+91" + mobile
@@ -204,14 +204,14 @@ export default function Register({t,languages}) {
         // User signed in successfully.
         // const user = result.user;
         // console.log(JSON.stringify(user));
-       // alert("User is verified");
+        // alert("User is verified");
         //window.location.href = "/newpassword";
         //handleSubmit()
         console.log("inside handleSubmit")
         seterror("");
-       
+
         const { phone, firstname, lastname, farmertype, type } = data;
-    
+
         if (!phone.match("[0-9]{10}")) {
           seterror("Please provide valid phone number");
         } else if (firstname.length === 0 && lastname.length === 0) {
@@ -278,7 +278,7 @@ export default function Register({t,languages}) {
             }
           );
         }
-      
+
         // ...
       })
       .catch((error) => {
@@ -294,7 +294,7 @@ export default function Register({t,languages}) {
   const [isRtl, setIsRtl] = useState(false);
 
 
-  
+
 
   return (
     <div className="authContainer">
@@ -328,14 +328,14 @@ export default function Register({t,languages}) {
             sx={{ mt: 3 }}
           >
             <div id="sign-in-button"></div>
-            <img className="form-logo" src="./logo.png"  alt="form-logo" />
+            <img className="form-logo" src="./logo.png" alt="form-logo" />
             <Typography className="form-heading" component="h1" variant="h5">
               Welcome to Wingrowagritech
             </Typography>
             <Typography className="form-heading" mt={2} component="h1" variant="h5">
               Signup with us
             </Typography>
-            <Grid className="input-div-holder" container alignItems="center" justifyContent="center" spacing={2}>
+            <Grid className="input-div-holder" container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
                   inputlabelprops={{
@@ -371,6 +371,23 @@ export default function Register({t,languages}) {
                   className="textfield"
                 />
               </Grid>
+              <Grid item xs={6}  >
+                <TextField
+                  inputlabelprops={{
+                    style: { fontSize: 14, fontFamily: "monospace" },
+                  }}
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Mobile Number"
+                  name="phone"
+                  value={data.phone}
+                  onChange={handleChange}
+                  color="success"
+                  className="textfield"
+                />
+              </Grid>
+
 
               <Grid item xs={12}>
                 <FormControl
@@ -482,9 +499,26 @@ export default function Register({t,languages}) {
                 </Grid>
               )}
 
+              <Grid item xs={12}>
+                <TextField
+                  inputlabelprops={{
+                    style: { fontSize: 14, fontFamily: "monospace" },
+                  }}
+                  fullWidth
+                  name="address"
+                  label="address (optional)"
+                  type="address"
+                  id="address"
+                  value={data.address}
+                  onChange={handleChange}
+                  autoComplete="new-address"
+                  color="success"
+                  className="textfield"
+                />
+              </Grid>
               {data.type === "farmer" && (
 
-                <Grid item xs={12}  >
+                <Grid item xs={6}  >
                   <ReactTags
                     InputProps={{ style: { fontSize: 15 } }}
                     inputlabelprops={{ style: { fontSize: 15 } }}
@@ -506,42 +540,6 @@ export default function Register({t,languages}) {
 
 
               )}
-              
-              <Grid item xs={12}>
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  fullWidth
-                  name="address"
-                  label="address (optional)"
-                  type="address"
-                  id="address"
-                  value={data.address}
-                  onChange={handleChange}
-                  autoComplete="new-address"
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
-
-              <Grid item xs={6}  >
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Mobile Number"
-                  name="phone"
-                  value={data.phone}
-                  onChange={handleChange}
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
-  
             </Grid>
             {error !== "no error" && (
               <h3
@@ -550,81 +548,21 @@ export default function Register({t,languages}) {
                 {error}
               </h3>
             )}
-            
-            <Grid container alignItems="center" justifyContent="center" >
-              <Grid item xs={3}  >
-              <Button 
-              type="submit"
-              fullWidth
-              className="signup-btn"
-              variant="contained"
-              color="success"
-              size="large"
-              sx={{ mt: 1, mb: 2 }}
-            >
-              Fetch Otp
-            </Button>
-            </Grid>
-          </Grid>
-          
 
-
-            {/* <form onSubmit={onSubmitOTP}>
-            
-              <Grid item xs={12} sm={6} >
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  required
-                  fullWidth
-                  name="password"
-                  label="Enter OTP"
-                  type="password"
-                  id="password"
-                  value={data.password}
-                  onChange={handleChange}
-                  autoComplete="new-password"
-                  color="success"
-                  className="textfield"
-                />
-              </Grid>
-              <button className="forgot-btn" type="submit" style={{marginTop:'1rem'}}>
-                Submit OTP & Register
-              </button>
-            
-            </form> */}
-
-            <Grid container alignItems="center" justifyContent="center">
-              <form onSubmit={onSubmitOTP}>
-                <Grid item xs={12} sm={12}>
-                  <TextField
-                    inputlabelprops={{
-                      style: { fontSize: 14, fontFamily: "monospace" },
-                    }}
-                    required
-                    fullWidth
-                    name="password"
-                    label="Enter OTP"
-                    type="password"
-                    id="password"
-                    value={data.password}
-                    onChange={handleChange}
-                    autoComplete="new-password"
-                    color="success"
-                    className="textfield"
-                  />
-                </Grid>
-                <div style={{ textAlign: "center" }}>
-                  <button className="forgot-btn" type="submit" style={{ marginTop: '1rem', padding: '0.5rem' }}>
-                    Submit OTP & Register
-                  </button>
-                </div>
-
-              </form>
+            <Grid  >
+              <Button
+                type="submit"
+                fullWidth
+                className="signup-btn"
+                variant="contained"
+                color="success"
+                size="large"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Fetch Otp
+              </Button>
             </Grid>
 
-          
             <Grid container justifyContent="center">
               <Grid item>
                 <Link className="form-link" to="/login" variant="body2">
@@ -633,7 +571,29 @@ export default function Register({t,languages}) {
               </Grid>
             </Grid>
           </form>
-          
+          <form onSubmit={onSubmitOTP}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                inputlabelprops={{
+                  style: { fontSize: 14, fontFamily: "monospace" },
+                }}
+                required
+                fullWidth
+                name="password"
+                label="Enter OTP"
+                type="password"
+                id="password"
+                value={data.password}
+                onChange={handleChange}
+                autoComplete="new-password"
+                color="success"
+                className="textfield"
+              />
+            </Grid>
+            <button className="forgot-btn" type="submit">
+              Submit OTP & Register
+            </button>
+          </form>
 
 
 
