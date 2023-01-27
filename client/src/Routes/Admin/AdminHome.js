@@ -63,7 +63,7 @@ const AdminHome = ({
       white: '#fff',
       orange: '#FF9066'
     }
-  const data = {
+  const data1 = {
     summary: [
         {
             title: 'Farmers Markets',
@@ -80,6 +80,38 @@ const AdminHome = ({
           
       }
     ]}
+    const data2={
+      summary: [
+        {
+          title: 'Purched Quantity',
+          subtitle: 'Total Quantity Purched',
+          value: purchaseQty,
+          percent: (purchaseQty*100)/maxPurchaseQty
+      },
+      {
+          title: 'Purchase',
+          subtitle: 'Total Purchase Amount',
+          value: purchaseAmount,
+          percent: (purchaseAmount*100)/maxPurchaseAmount
+      },
+    ]
+    }
+    const data3 ={
+      summary: [
+        {
+          title: 'Sales Quantity',
+          subtitle: 'Total Sales Quantity',
+          value: salesQty,
+          percent: (salesQty*100)/maxSalesQty
+      },
+      {
+          title: 'Sales',
+          subtitle: 'Total Sales Amount',
+          value: salesAmount,
+          percent: (salesAmount*100)/maxSalesAmount
+      }
+    ]
+    }
   return (
     <>
       <div className="admin_main_component">
@@ -116,7 +148,7 @@ const AdminHome = ({
                 {/* <Card header={"Total Market"} value={totalFarmers.size} />
                 <Card header={"Stalls Booked"} value={noOfBookedStalls} /> */}
                 {
-          data.summary.map((item, index) => {
+          data1.summary.map((item, index) => {
             return(<div key={`summary-${index}`}  >
                 {
                   <>
@@ -128,7 +160,7 @@ const AdminHome = ({
                         value={item.percent}
                         strokeWidth={6}
                         styles={buildStyles({
-                            pathColor: item.percent < 50 ? colors.red : colors.purple,
+                            pathColor: item.percent < 50 ? colors.green : colors.green,
                             trailColor: '#d3d3d3',
                             strokeLinecap: 'round'
                         })}
@@ -151,8 +183,36 @@ const AdminHome = ({
             {filteredInData && filteredOutData && (
               <div className="total-quantity">
                
-                <Card header={"Purchase:"} value={purchaseQty} />
-                <Card header={"Sales:"} value={salesQty} />
+                {/* <Card header={"Purchase:"} value={purchaseQty} />
+                <Card header={"Sales:"} value={salesQty} /> */}
+                {
+          data2.summary.map((item, index) => {
+            return(<div key={`summary-${index}`}  >
+                {
+                  <>
+                  <span>{item.title} </span>
+                  
+                  
+                  <CircularProgressbarWithChildren
+                       className='circularbar'
+                        value={item.percent}
+                        strokeWidth={6}
+                        styles={buildStyles({
+                            pathColor: item.percent < 50 ? colors.green : colors.green,
+                            trailColor: '#d3d3d3',
+                            strokeLinecap: 'round'
+                        })}
+                    >
+                      <br/>
+                        <div className="summary-box__chart__value">
+                            {item.percent}%
+                        </div>
+                    </CircularProgressbarWithChildren>
+                  </>
+                }
+            </div>)
+})
+        } 
               </div>
             )}
             </div>
@@ -160,8 +220,36 @@ const AdminHome = ({
                 <h2>Amount</h2>
             {filteredInData && filteredOutData && (
               <div className="total-amount">
-                <Card header={"Purchase:"} value={purchaseAmount} />
-                <Card header={"Sales:"} value={salesAmount} />
+                {/* <Card header={"Purchase:"} value={purchaseAmount} />
+                <Card header={"Sales:"} value={salesAmount} /> */}
+                {
+          data3.summary.map((item, index) => {
+            return(<div key={`summary-${index}`}  >
+                {
+                  <>
+                  <span>{item.title} </span>
+                  
+                  
+                  <CircularProgressbarWithChildren
+                       className='circularbar'
+                        value={item.percent}
+                        strokeWidth={6}
+                        styles={buildStyles({
+                            pathColor: item.percent < 50 ? colors.green : colors.green,
+                            trailColor: '#d3d3d3',
+                            strokeLinecap: 'round'
+                        })}
+                    >
+                      <br/>
+                        <div className="summary-box__chart__value">
+                            {item.percent}%
+                        </div>
+                    </CircularProgressbarWithChildren>
+                  </>
+                }
+            </div>)
+})
+        } 
               </div>
             )}
             </div>
