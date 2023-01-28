@@ -388,7 +388,66 @@ export default function Register({ t, languages }) {
                   className="textfield"
                 />
               </Grid>
+              <Grid item xs ={6}>
+              <Button
+                type="button"
+                fullWidth
+                onClick={ onSignInSubmit }
+                className="signup-btn"
+                variant="contained"
+                color="success"
+                size="large"
+                sx={{ mt: 2, mb: 2 }}
+              >
+                Fetch Otp
+              </Button>
+              </Grid>
 
+              <Grid item xs={6}  >
+              
+              <TextField
+                inputlabelprops={{
+                  style: { fontSize: 14, fontFamily: "monospace" },
+                }}
+                required
+                fullWidth
+                name="password"
+                label="Enter OTP"
+                type="password"
+                id="password"
+                value={data.password}
+                onChange={handleChange}
+                autoComplete="new-password"
+                color="success"
+                className="textfield"
+              />
+            
+            
+              </Grid>
+              <Grid item xs ={6}>
+              {/* <button 
+              fullWidth
+              className="signup-btn" 
+              type="button"
+              variant="contained"
+                color="success"
+                size="large"
+              >
+              Submit OTP & Register
+            </button> */}
+            <Button
+                type="button"
+                fullWidth
+                onClick={ onSubmitOTP }
+                className="signup-btn"
+                variant="contained"
+                color="success"
+                size="large"
+                sx={{ mt: 2, mb: 2 }}
+              >
+                Submit OTP
+              </Button>
+              </Grid>
 
               <Grid item xs={12}>
                 <FormControl
@@ -550,20 +609,8 @@ export default function Register({ t, languages }) {
               </h3>
             )}
 
-            <Grid  >
-              <Button
-                type="button"
-                fullWidth
-                onClick={ onSignInSubmit }
-                className="signup-btn"
-                variant="contained"
-                color="success"
-                size="large"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Fetch Otp
-              </Button>
-              <Button
+          
+              <Button item xs ={12}
                 type="submit"
                 fullWidth
                 
@@ -575,7 +622,7 @@ export default function Register({ t, languages }) {
               >
                 register
               </Button>
-            </Grid>
+            
 
             <Grid container justifyContent="center">
               <Grid item>
@@ -585,7 +632,7 @@ export default function Register({ t, languages }) {
               </Grid>
             </Grid>
           </form>
-          <form onSubmit={onSubmitOTP}>
+          {/* <form onSubmit={onSubmitOTP}>
             <Grid item xs={12} sm={6}>
               <TextField
                 inputlabelprops={{
@@ -607,7 +654,7 @@ export default function Register({ t, languages }) {
             <button className="forgot-btn" type="submit">
               Submit OTP & Register
             </button>
-          </form>
+          </form> */}
 
 
 
