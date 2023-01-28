@@ -147,6 +147,7 @@ const Home = () => {
           <p className="third_section_p">We organize weekly markets at key locations in Pune, which allows farmers to sell fresh produce directly to the customers, cutting out middlemen in the process. This allows customers to buy farm fresh produce at affordable rates, while the farmers who grow the produce get a fair price for it. </p>
         </div>
         <div className='location_component'>
+        
           <Location
           // t={t}
           // languages={languages}
@@ -160,11 +161,10 @@ const Home = () => {
           <h1 className='fourth_section_header' style={{ color: "black" }}>Cutting the middleman out </h1>
           <div className='fourth_section_details'>
             <p className='fourth_section_para'>At Wingro Agritech, we facilitate direct interaction between consumers and farmers.</p>
-            <span className='overlapImg'>
-              <img className='wood_img' src='https://cdn.pixabay.com/photo/2017/02/07/09/02/wood-2045379__340.jpg' alt='wood'></img>
-              <img className='fruit_vegetable_img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnEmpujnghuBa7zG1RW3n69TNb5WlKtMdKE3nGGkGVjsxKfTxZaI7WE3YjxY7iMvr-7g&usqp=CAU" alt='fruits & vegetable'></img>
+            
+              <img className='wood_img' src='https://images.pling.com/img/00/00/33/91/33/1227673/faa811fa12c56bd35832775490ecffe5d07c.jpg' alt='wood'></img>
+              {/* <img className='fruit_vegetable_img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnEmpujnghuBa7zG1RW3n69TNb5WlKtMdKE3nGGkGVjsxKfTxZaI7WE3YjxY7iMvr-7g&usqp=CAU" alt='fruits & vegetable'></img> */}
 
-            </span>
           </div>
         </div>
       </div>
