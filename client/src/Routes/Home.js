@@ -156,6 +156,9 @@ const Home = () => {
 
       </div>
 
+      
+
+
       <div className='fourth_section'>
         <div className='fourth_section_layout'>
           <h1 className='fourth_section_header' style={{ color: "black" }}>Cutting the middleman out </h1>
