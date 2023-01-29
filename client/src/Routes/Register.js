@@ -201,83 +201,83 @@ export default function Register({ t, languages }) {
     window.confirmationResult
       .confirm(code)
       .then((result) => {
-        // User signed in successfully.
-        // const user = result.user;
-        // console.log(JSON.stringify(user));
-        // alert("User is verified");
+        //User signed in successfully.
+        const user = result.user;
+        console.log(JSON.stringify(user));
+        alert("User is verified");
         //window.location.href = "/newpassword";
         //handleSubmit()
-        console.log("inside handleSubmit")
-        seterror("");
+        // console.log("inside handleSubmit")
+        // seterror("");
 
-        const { phone, firstname, lastname, farmertype, type } = data;
+        // const { phone, firstname, lastname, farmertype, type } = data;
 
-        if (!phone.match("[0-9]{10}")) {
-          seterror("Please provide valid phone number");
-        } else if (firstname.length === 0 && lastname.length === 0) {
-          seterror("Please provide valid first and last name");
-        } else if (type.length === 0) {
-          seterror("Please select type");
-        } else if (type === "farmer" && farmertype.length === 0) {
-          seterror("select producer type");
-        } else if (type === "farmer" && tags.length === 0) {
-          seterror("select atleast one commodity and press enter");
-        } else {
-          seterror("no error");
-          setLoading(true);
-          AuthService.register(
-            data.phone,
-            data.password,
-            data.firstname,
-            data.lastname,
-            data.type,
-            data.farmertype,
-            data.address,
-            tags
-          ).then(
-            () => {
-              toast.success("Registration successful!", {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-              setTimeout(() => {
-                navigate("/registeration-successfull");
-                window.location.reload();
-              }, 1000);
-            },
-            (error) => {
-              toast.warn("User Already Exists", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-              setData({
-                phone: "",
-                password: "",
-                firstname: "",
-                lastname: "",
-                type: "",
-                farmertype: "",
-                address: "",
-              });
-              setTimeout(() => {
-                navigate("/login");
-                window.location.reload();
-              }, 1000);
-            }
-          );
-        }
+        // if (!phone.match("[0-9]{10}")) {
+        //   seterror("Please provide valid phone number");
+        // } else if (firstname.length === 0 && lastname.length === 0) {
+        //   seterror("Please provide valid first and last name");
+        // } else if (type.length === 0) {
+        //   seterror("Please select type");
+        // } else if (type === "farmer" && farmertype.length === 0) {
+        //   seterror("select producer type");
+        // } else if (type === "farmer" && tags.length === 0) {
+        //   seterror("select atleast one commodity and press enter");
+        // } else {
+        //   seterror("no error");
+        //   setLoading(true);
+        //   AuthService.register(
+        //     data.phone,
+        //     data.password,
+        //     data.firstname,
+        //     data.lastname,
+        //     data.type,
+        //     data.farmertype,
+        //     data.address,
+        //     tags
+        //   ).then(
+        //     () => {
+        //       toast.success("Registration successful!", {
+        //         position: "top-center",
+        //         autoClose: 3000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "light",
+        //       });
+        //       setTimeout(() => {
+        //         navigate("/registeration-successfull");
+        //         window.location.reload();
+        //       }, 1000);
+        //     },
+        //     (error) => {
+        //       toast.warn("User Already Exists", {
+        //         position: "top-center",
+        //         autoClose: 5000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         theme: "light",
+        //       });
+        //       setData({
+        //         phone: "",
+        //         password: "",
+        //         firstname: "",
+        //         lastname: "",
+        //         type: "",
+        //         farmertype: "",
+        //         address: "",
+        //       });
+        //       setTimeout(() => {
+        //         navigate("/login");
+        //         window.location.reload();
+        //       }, 1000);
+        //     }
+        //   );
+        // }
 
         // ...
       })
@@ -324,7 +324,8 @@ export default function Register({ t, languages }) {
             className="register_details"
             component="form"
             noValidate
-            onSubmit={onSignInSubmit}
+            
+            onSubmit={handleSubmit}
             sx={{ mt: 3 }}
           >
             <div id="sign-in-button"></div>
@@ -387,7 +388,66 @@ export default function Register({ t, languages }) {
                   className="textfield"
                 />
               </Grid>
+              <Grid item xs ={6}>
+              <Button
+                type="button"
+                fullWidth
+                onClick={ onSignInSubmit }
+                className="signup-btn"
+                variant="contained"
+                color="success"
+                size="large"
+                sx={{ mt: 2, mb: 2 }}
+              >
+                Fetch Otp
+              </Button>
+              </Grid>
 
+              <Grid item xs={6}  >
+              
+              <TextField
+                inputlabelprops={{
+                  style: { fontSize: 14, fontFamily: "monospace" },
+                }}
+                required
+                fullWidth
+                name="password"
+                label="Enter OTP"
+                type="password"
+                id="password"
+                value={data.password}
+                onChange={handleChange}
+                autoComplete="new-password"
+                color="success"
+                className="textfield"
+              />
+            
+            
+              </Grid>
+              <Grid item xs ={6}>
+              {/* <button 
+              fullWidth
+              className="signup-btn" 
+              type="button"
+              variant="contained"
+                color="success"
+                size="large"
+              >
+              Submit OTP & Register
+            </button> */}
+            <Button
+                type="button"
+                fullWidth
+                onClick={ onSubmitOTP }
+                className="signup-btn"
+                variant="contained"
+                color="success"
+                size="large"
+                sx={{ mt: 2, mb: 2 }}
+              >
+                Submit OTP
+              </Button>
+              </Grid>
 
               <Grid item xs={12}>
                 <FormControl
@@ -549,19 +609,20 @@ export default function Register({ t, languages }) {
               </h3>
             )}
 
-            <Grid  >
-              <Button
+          
+              <Button item xs ={12}
                 type="submit"
                 fullWidth
+                
                 className="signup-btn"
                 variant="contained"
                 color="success"
                 size="large"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Fetch Otp
+                register
               </Button>
-            </Grid>
+            
 
             <Grid container justifyContent="center">
               <Grid item>
@@ -571,7 +632,7 @@ export default function Register({ t, languages }) {
               </Grid>
             </Grid>
           </form>
-          <form onSubmit={onSubmitOTP}>
+          {/* <form onSubmit={onSubmitOTP}>
             <Grid item xs={12} sm={6}>
               <TextField
                 inputlabelprops={{
@@ -593,7 +654,7 @@ export default function Register({ t, languages }) {
             <button className="forgot-btn" type="submit">
               Submit OTP & Register
             </button>
-          </form>
+          </form> */}
 
 
 
