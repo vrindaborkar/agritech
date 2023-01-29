@@ -67,7 +67,7 @@ return (
 		</div>
 	</div>
 
-    <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)',textAlign:'center' , padding:"4px", color:'white', fontWeight:'bolder'}}>
+    <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)',marginBottom:'0.5rem',textAlign:'center' , padding:"4px", color:'white', fontWeight:'bolder'}}>
     &copy; 2023 Copyright:
         <a style={{fontWeight:"bolder", color:'white'}} href='https://www.wingrowagritech.com/'>
          Wingrow Agritech.  All rights reserved.

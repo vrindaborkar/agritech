@@ -68,4 +68,22 @@
     }
 }
 
+@media (max-width: 640px) {
+    .Box{
+        max-height: 25rem;
+        margin-bottom: 0.5rem;
+    }
+    .row {
+            display: flex;
+            /* grid-gap: 10px; */
+            justify-content: space-around;
+    }
+    .Heading{
+        font-size: 1.3rem;
+    }
+    .FooterLink {
+        font-size: 1rem;
+    }
+}
+
 /* new footer */
