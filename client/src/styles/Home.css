@@ -613,8 +613,13 @@ background-color: transparent;
   height: 250px;
 
 }
-
-
+.fourth_section{
+  max-height: 23rem;
+}
+.fourth_section img{
+  width: 20rem;
+  height: 22.5rem;
+}
 
 
 .info_scroll{
@@ -712,10 +717,17 @@ background-color: transparent;
           text-align: center;
     
         }
+.fourth_section{
+  max-height: 22.5rem;
+}
+.fourth_section_para{
+  font-size: 1.2rem;
+}
 .fourth_section h1{
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 .fourth_section img{
+  width: 41rem;
   margin-left: 22rem;
 }
 }
