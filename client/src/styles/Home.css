@@ -618,7 +618,8 @@ background-color: transparent;
 }
 .fourth_section img{
   width: 20rem;
-  height: 22.5rem;
+  height: 23rem;
+  margin-top: -6.45rem;
 }
 
 
@@ -717,17 +718,27 @@ background-color: transparent;
           text-align: center;
     
         }
+
+
+.fourth_section_details{
+  display: inline;
+}
 .fourth_section{
   max-height: 22.5rem;
 }
 .fourth_section_para{
+  margin-left: -1.9rem;
   font-size: 1.2rem;
+  max-width: 25rem;
 }
 .fourth_section h1{
+  margin-left: 0.1rem;
   font-size: 1.8rem;
 }
 .fourth_section img{
-  width: 41rem;
-  margin-left: 22rem;
+  width: 25rem;
+  height: 22.5rem;
+  margin-left: 27rem;
+  margin-top: -10.8rem;
 }
 }
