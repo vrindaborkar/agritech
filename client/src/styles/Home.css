@@ -334,11 +334,15 @@
     margin-top: 2rem;
     
 }
+.fourth_section h1{
+  margin-top: 8rem;
+  margin-left: 12rem;
+}
 .fourth_section_details{
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content:center;
-  align-items: flex-start;
+  align-items: flex-start; */
   margin-left: 2rem;
 }
 
@@ -349,6 +353,8 @@
     text-transform: capitalize;
     z-index: 1;
     font-size: large;
+    margin-left: 10rem;
+    max-width: 45rem;
 
 }
 
@@ -364,10 +370,10 @@
 }
 
 .fourth_section img{
-  margin-left: 15em;
+  margin-left: 69.9em;
   width: 53rem;
   margin-right: 0rem;
-  margin-top: -6rem;
+  margin-top: -17.25rem;
 }
 
 .forth_section_details{
@@ -461,6 +467,7 @@ a{
 .location_container{
   padding: 0.5rem; 
   width: 100%; 
+  
 }
 
 .location_component_main{
@@ -616,10 +623,20 @@ background-color: transparent;
 .fourth_section{
   max-height: 23rem;
 }
+.fourth_section h1{
+  margin-top: 5rem;
+  margin-left: 0rem;
+}
+.fourth_section_para{
+  margin-left: -2rem;
+  max-width: 38rem;
+}
 .fourth_section img{
-  width: 20rem;
+  width: 35rem;
   height: 23rem;
-  margin-top: -6.45rem;
+  margin-top: -15.25rem;
+  margin-left: 35rem;
+
 }
 
 
@@ -729,16 +746,22 @@ background-color: transparent;
 .fourth_section_para{
   margin-left: -1.9rem;
   font-size: 1.2rem;
-  max-width: 25rem;
+  max-width: 22rem;
 }
 .fourth_section h1{
   margin-left: 0.1rem;
   font-size: 1.8rem;
+  margin-top: 6rem;
+  max-width: 22rem;
 }
 .fourth_section img{
-  width: 25rem;
+  width: 27rem;
   height: 22.5rem;
-  margin-left: 27rem;
-  margin-top: -10.8rem;
+  margin-left: 20rem;
+  margin-top: -18.25rem;
+}
+.location_component {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 }
