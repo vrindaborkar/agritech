@@ -166,7 +166,7 @@ const Home = () => {
           <div className='fourth_section_details'>
             <p className='fourth_section_para'>At Wingro Agritech, we facilitate direct interaction between consumers and farmers.</p>
             
-              <img className='wood_img' src='./images/strawberry.jpg' alt='wood'></img>
+              <img className='wood_img' src='./images/strawberry.jpg' alt='strawberry'></img>
               {/* <img className='fruit_vegetable_img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnEmpujnghuBa7zG1RW3n69TNb5WlKtMdKE3nGGkGVjsxKfTxZaI7WE3YjxY7iMvr-7g&usqp=CAU" alt='fruits & vegetable'></img> */}
 
           </div>
