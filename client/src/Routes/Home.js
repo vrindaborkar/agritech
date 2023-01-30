@@ -11,6 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 //import { useTranslation } from "react-i18next";
 import { FaLeaf } from 'react-icons/fa';
 
+<link href="https://www.fontzip.com/storage/2018/03/13/spring-in-my-step/webfonts/Spring In My Step.css" rel="stylesheet" />
 const Home = () => {
   const [mobile, setmobile] = useState(false)
   useEffect(() => {
@@ -165,7 +166,7 @@ const Home = () => {
           <div className='fourth_section_details'>
             <p className='fourth_section_para'>At Wingro Agritech, we facilitate direct interaction between consumers and farmers.</p>
             
-              <img className='wood_img' src='https://images.pling.com/img/00/00/33/91/33/1227673/faa811fa12c56bd35832775490ecffe5d07c.jpg' alt='wood'></img>
+              <img className='wood_img' src='./images/strawberry.jpg' alt='wood'></img>
               {/* <img className='fruit_vegetable_img' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAnEmpujnghuBa7zG1RW3n69TNb5WlKtMdKE3nGGkGVjsxKfTxZaI7WE3YjxY7iMvr-7g&usqp=CAU" alt='fruits & vegetable'></img> */}
 
           </div>
