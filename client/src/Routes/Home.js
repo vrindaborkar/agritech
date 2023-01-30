@@ -8,6 +8,7 @@ import useWindowDimensions from '../components/useWindowDimensions'
 import { useNavigate } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { FaSortDown } from 'react-icons/fa';
 //import { useTranslation } from "react-i18next";
 import { FaLeaf } from 'react-icons/fa';
 
@@ -62,11 +63,11 @@ const Home = () => {
             </div>
           </div>
           <div className='image image2'>
-            <img src='./images/farming.jpg' alt='hero' />
+            <img src='./images/image_7.webp' alt='hero' />
             <div ><p className="image-text2">Fruits and Vegetables are provided directly from farmers</p></div>
           </div>
           <div className='image image3'>
-            <img src='./images/middleman.jpg' alt='hero' />
+            <img src='./images/image_8.webp' alt='hero' style={{backgroundColor:'white'}} />
             <div className='image-text3'>Middlemen offer lower prices to farmers and charge higher prices from the consumers, our aim is to remove middleman</div>
           </div>
           <div className='image image4'>
@@ -77,10 +78,13 @@ const Home = () => {
             <img src='./images/farmers-street-market-city.webp' alt='hero' />
             <div className='image-text5'><span>Fresh and natural ingredients straight from farm <FaLeaf /></span></div>
           </div>
+          
+          
         </Carousel>
+             
 
       </div>
-
+  
       {!mobile ?
         <div className='second_section_wrapper'>
           <div className='second_section_aboutus'>
