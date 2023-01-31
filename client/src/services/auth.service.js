@@ -3,7 +3,8 @@ import authHeader from "./auth.headers";
 
 // const API_URL = "https://wingrowagritech.herokuapp.com/auth/";
 const API_URL = "https://wingrowmarket.onrender.com/auth/";
-// const API_URL = "http://localhost:4000/auth/";
+const API_URL1 = "https://wingrowmarket.onrender.com/"
+ //const API_URL = "https://localhost:4000/auth/";
 
 const register = (
   phone,
@@ -42,15 +43,16 @@ const login = (phone, password) => {
 
 const addAddress = (address) => {
   return axios
-    .post(API_URL + "address", { address }, { headers: authHeader() })
+    .post(API_URL1 + "address", { address }, { headers: authHeader() })
     .then((response) => {
+      console.log(response.data)
       return response.data;
     });
 };
 
 const addimage = (formData) => {
   return axios
-    .put(API_URL + "image", formData, { headers: authHeader() })
+    .put(API_URL1 + "image", formData, { headers: authHeader() })
     .then((response) => {
       return response.data;
     });

@@ -14,10 +14,10 @@ module.exports = function(app) {
   app.post("/auth/signin", controller.signin);
   app.post("/auth/feedback", controller.feedback);
   // app.put("/auth/image" , controller.postPic)
-  // app.post("/auth/address", controller.addAddress);
+   //app.post("/auth/address", controller.addAddress);
   // app.post("/signup",[verifySignUp.checkDuplicatePhone],controller.signup );
   // app.post("/signin", controller.signin);
   app.put("/image" , controller.postPic)
-  app.post("/address", controller.addAddress);
+ app.post("/address", controller.addAddress);
   app.post("/auth/newpassword", controller.newpassword);
 };
