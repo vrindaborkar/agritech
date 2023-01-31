@@ -30,7 +30,8 @@
     "react-tag-input": "^6.8.1",
     "react-toastify": "^9.1.1",
     "shortid": "^2.2.16",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",

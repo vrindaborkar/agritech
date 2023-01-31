@@ -11,6 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 //import { useTranslation } from "react-i18next";
 import { FaLeaf } from 'react-icons/fa';
 
+
 const Home = () => {
   const [mobile, setmobile] = useState(false)
   useEffect(() => {
@@ -20,6 +21,8 @@ const Home = () => {
   }, [])
 
   const { width } = useWindowDimensions()
+
+  
 
   useEffect(() => {
     if (width < 800) {
