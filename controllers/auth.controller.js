@@ -147,9 +147,9 @@ exports.signin = (req, res) => {
 
 exports.feedback=async(req,res)=>{
   const {  message , stars} = req.body;
-  const feedback = new Feedback({
+  const feedback = new Feedback({    
+    message,
     stars,
-    message
   })
   const data = await feedback.save()
   res.status(200).send(feedback);
