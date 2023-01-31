@@ -103,10 +103,12 @@ a {
         display: flex;
         /* grid-gap: 10px; */
         justify-content: space-around;
+        max-width: 50rem;
     }
 
     .Heading {
         font-size: 1.3rem;
+        
     }
 
     .FooterLink {

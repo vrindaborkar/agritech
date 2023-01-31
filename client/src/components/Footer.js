@@ -11,11 +11,11 @@ const Footer = () => {
 			`<div className="Container">
 				<div className="row">
 					<div className="Column">
-						<p className="Heading">Wingrow Agritech</p>
-						<Link className="FooterLink" to="#">Wingrow Agritech Producer Company Ltd., Sn 637,b/2, Omkarnagar, Pmt colony, Pokale Wasti, Bibwewadi, Pune-411037
+						<p className="Heading" style={{marginLeft: '1rem'}}>Wingrow Agritech</p>
+						<Link className="FooterLink" to="#" style={{ marginLeft: '1rem' }}>Wingrow Agritech Producer Company Ltd., Sn 637,b/2, Omkarnagar, Pmt colony, Pokale Wasti, Bibwewadi, Pune-411037
 						</Link>
-						<Link className="FooterLink" to="mailto:connect@wingrowagritech.com" >connect@wingrowagritech.com</Link>
-						<Link className="FooterLink" to="#">+91 777 600 3700</Link>
+						<Link className="FooterLink" to="mailto:connect@wingrowagritech.com" style={{ marginLeft: '1rem' }}>connect@wingrowagritech.com</Link>
+						<Link className="FooterLink" to="#" style={{ marginLeft: '1rem' }}>+91 777 600 3700</Link>
 
 
 					</div>
@@ -44,7 +44,7 @@ const Footer = () => {
 					</div>
 
 					<div className="Column">
-						<p className="Heading">Social Media</p>
+						<p className="Heading" >Social Media</p>
 						<a className="FooterLink" href="https://www.facebook.com/Wingrow-Agritech-Producer-Company-Limited-4">
 							<BsFacebook />
 							<span style={{ marginLeft: "10px" }}>
