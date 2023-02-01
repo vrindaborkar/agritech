@@ -227,7 +227,9 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
   };
 
   return (
+    
     <div className="Test">
+      
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -240,6 +242,7 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
         pauseOnHover
         theme="light"
       />
+      
       <Link to="../" className="advancebookinglinkback">
         Go Back to stalls!
       </Link>

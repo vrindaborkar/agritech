@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/Farmer.css";
 import FarmerService from "../../services/farmer.service";
 import Spinner from "../../components/Spinner";
+import { Link } from "react-router-dom";
 
 const FarmersHome = () => {
   const [InwardData, setInwardData] = useState();
@@ -38,7 +39,9 @@ const FarmersHome = () => {
 </div>
 
         <div className="farmers_page">
-      
+        <Link style={{ marginTop: '10px' }} className="backbtn green" to="/farmers" >
+          Back
+        </Link>
 
       {InwardData && OutwardData && (
         <div className="farmers_data">
