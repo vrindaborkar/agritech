@@ -1,5 +1,5 @@
 import React, { useState , useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import FarmerService from '../../services/farmer.service'
 import '../../styles/Farmer.css'
 import Spinner from '../../components/Spinner'
@@ -33,7 +33,11 @@ useEffect(() => {
 
   return (
     <>
+      
     {stalls && <div className='places_market_container'>
+        <Link style={{ marginTop: '10px' }} className="backbtn green" to="/farmers" >
+          Back
+        </Link>
         <h2 className='main_header_places'>Select Market From Below..</h2>
         <div className='places_wrapper'>
         {

@@ -9,6 +9,8 @@ import OutwardData from "./OutwardData";
 import StallsPlaces from "./StallsPlaces";
 import Test from "./Test";
 import Ticket from "./Ticket";
+import FarmerNav from "./FarmerNav";
+import FarmerNavigation from "./FarmerNavigation";
 
 const Farmer = () => {
   const [bookingDetails, setbookingDetails] = useState({
@@ -24,9 +26,10 @@ const Farmer = () => {
   return (
     <Routes>
       <Route path="/" element={<FarmersMain />}>
-        <Route index element={<StallsPlaces />} />
+        <Route index element={<FarmerNavigation />} />
+        <Route path="/stallplaces" element={<StallsPlaces />} />
         <Route
-          path="stalls/:Id"
+          path="stallplaces/stalls/:Id"
           element={<Test setbookingDetails={setbookingDetails} />}
         />
         <Route path="/farmershome" element={<FarmersHome />} />

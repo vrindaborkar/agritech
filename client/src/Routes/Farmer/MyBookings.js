@@ -9,6 +9,7 @@ import axios from 'axios';
 import authHeader from '../../services/auth.headers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const MyBookings = () => {
     const user = AuthService.getCurrentUser()
@@ -64,6 +65,9 @@ const MyBookings = () => {
 
   return (
     <>
+          <Link style={{marginTop:'10px'}} className="backbtn green" to="/farmers">
+              Back
+          </Link>
     {MyStalls?<div className='bookings_container'>
     <ToastContainer
         position="top-center"

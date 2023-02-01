@@ -17,6 +17,7 @@ import FarmerService from "../../services/farmer.service";
 import Autocomplete from "@mui/material/Autocomplete";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const locations = [
   { location: "Hadapsar" },
@@ -265,6 +266,9 @@ export default function OutwardData() {
 
   return (
     <div className="data_container">
+      <Link className="backbtn green" to="/farmers" sx={{ m: 2 }} style={{ marginTop: -'570px',  marginLeft: '10px'}}>
+        Back
+      </Link>
       <ToastContainer
         position="top-center"
         autoClose={3000}

@@ -75,7 +75,7 @@ const Navbar = () => {
             }
             {showFarmersBoard &&
               <li className="medialinks">
-              <Link onClick={()=>{setShowMediaIcons(false)}} to="/farmers">
+                <Link onClick={() => { setShowMediaIcons(false) }} to="/farmers/stallplaces">
                 <div className="profile_wrapper">
                 <img className="profile_logo" src="https://www.freeiconspng.com/thumbs/market-icons/market-icon-18.png" alt="logo"/>
                 <p>Book My Stall</p>
