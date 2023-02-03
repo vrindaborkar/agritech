@@ -48,9 +48,9 @@ function Test({ setbookingDetails , setValue }) {
     FarmerService.getBookedStalls().then((response) => {
      const res = response.data && response.data.filter((e) => e.location === `${Id}`);
      setAlreadyBooked(response.data);
-     setAlreadyBookedLocation(res.length);
+     setAlreadyBookedLocation(res.length-1);
      
-      console.log("already booked",res.length);
+      console.log("already booked",res.length-1);
     
     });
     handleOpen(true);
@@ -79,7 +79,7 @@ function Test({ setbookingDetails , setValue }) {
       //setAvailable(UpdatedData.length);
       setTotalStalls(UpdatedData.length)
       
-      setAvailable(totalStall-alreadyBookedLocataion)
+      setAvailable(Math.abs(totalStall-alreadyBookedLocataion))
     }
     
     
@@ -313,28 +313,31 @@ function Test({ setbookingDetails , setValue }) {
   };
 
   const handleClick = (ev) => {
-    console.log("already ",alreadyBooked)
+    console.log("already ", alreadyBookedLocataion)
     //console.log(userCurr)
 
     console.log("booked " ,bookedStalls);
     console.log("number of seats ",numberOfSeats);
     console.log(ev.target)
     if (numberOfSeats && ev.target.className !== "booked") {
+      console.log("available:", (available))
       const seatsToBook = parseInt(numberOfSeats, 20);
       if (bookedStalls.length <= seatsToBook) {
-
+        
         if (bookedStalls.includes(ev.target.id)) {
-
+          console.log('hello')
           //if already selected then remove it
-          const newAvailable = bookedStalls.filter(
+          const newAvailable = Math.abs(bookedStalls.filter(
             (seat) => seat !== ev.target.id
-          );
+          ));
+          console.log("newavailable:",newAvailable)
+          
           setBookedStalls(newAvailable);
-          setAvailable(available + 1);
+          setAvailable(Math.abs(available + 1));
         } else if (bookedStalls.length < numberOfSeats) {
           const item = UpdatedData.filter((e) => e._id === ev.target.id);
           console.log("here booked");
-          setAvailable(available - 1);
+          setAvailable(Math.abs(available - 1));
           //console.log(userCurr)
           setBookedStalls([...bookedStalls, item[0]]);
         } else if (bookedStalls.length === seatsToBook) {
@@ -351,11 +354,27 @@ function Test({ setbookingDetails , setValue }) {
   const lengthofUpdatedData = UpdatedData?.length;
   //UpdatedData?.length
   const handleChange = (e , newValue) => {
-    //console.log(newValue);
+    // console.log(e.target);
     setNumberOfSeats(e.target.value);
+    console.log(numberOfSeats)
     setValue(e.target.value);
   };
 
+
+// const up=()=>{
+//   setValue1(value1 + 1)
+//   setNumberOfSeats( value1+1)
+//   //console.log("number of seats:",numberOfSeats);
+//   //  console.log(value1) 
+//   // console.log("numderofseats on up:", numberOfSeats) 
+// }
+// const down=()=>{
+//   setValue1(value1 - 1)
+//   setNumberOfSeats( value1-1)
+//   //console.log("number of seats:", numberOfSeats);
+//   //  console.log(value1) 
+//   //  console.log("numderofseats on down:", numberOfSeats) 
+// }
   return (
     <>
       <Link style={{ marginTop: '10px' }} className="backbtn green" to="/farmers" >
@@ -390,6 +409,12 @@ function Test({ setbookingDetails , setValue }) {
                   // margin="normal"
                   
                 />
+
+                {/* <input type="text" value={value1} onChange={(event) => setValue1(event.target.value)}  />
+                <button onClick={up}>+</button>
+                <button onClick={down}>-</button> */}
+                
+               
               </Grid>
             </Grid>
             <Grid className="advance-booking">
