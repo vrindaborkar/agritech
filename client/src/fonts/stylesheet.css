@@ -1,0 +1,85 @@
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-ExtraLightItalic.eot');
+    src: url('Arturo-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-ExtraLightItalic.woff2') format('woff2'),
+        url('Arturo-ExtraLightItalic.woff') format('woff'),
+        url('Arturo-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-Light.eot');
+    src: url('Arturo-Light.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-Light.woff2') format('woff2'),
+        url('Arturo-Light.woff') format('woff'),
+        url('Arturo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-Italic.eot');
+    src: url('Arturo-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-Italic.woff2') format('woff2'),
+        url('Arturo-Italic.woff') format('woff'),
+        url('Arturo-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-Regular.eot');
+    src: url('Arturo-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-Regular.woff2') format('woff2'),
+        url('Arturo-Regular.woff') format('woff'),
+        url('Arturo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-Thin.eot');
+    src: url('Arturo-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-Thin.woff2') format('woff2'),
+        url('Arturo-Thin.woff') format('woff'),
+        url('Arturo-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-LightItalic.eot');
+    src: url('Arturo-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-LightItalic.woff2') format('woff2'),
+        url('Arturo-LightItalic.woff') format('woff'),
+        url('Arturo-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+} */
+
+/* @font-face {
+    font-family: 'Arturo';
+    src: url('Arturo-ThinItalic.eot');
+    src: url('Arturo-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('Arturo-ThinItalic.woff2') format('woff2'),
+        url('Arturo-ThinItalic.woff') format('woff'),
+        url('Arturo-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+} */
+

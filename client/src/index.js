@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import WebFont from 'webfontloader';
+
+// import WebFont from 'webfontloader';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

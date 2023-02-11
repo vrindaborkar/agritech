@@ -4,7 +4,7 @@ import './styles/Styles.css'
 import ProtectedRoute from "./utils/ProtectedRoutes";
 import AuthService from "./services/auth.service";
 import Spinner from './components/Spinner';
-import  './fonts/Arturo-Light_Trial.ttf'
+import './fonts/stylesheet.css'
 const Main = lazy(()=> import('./Routes/Main'))
 const Profile = lazy(()=> import('./Routes/Profile'))
 const NotFound = lazy(()=> import('./Routes/NotFound'))
