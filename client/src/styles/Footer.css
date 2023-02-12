@@ -1,0 +1,122 @@
+* {}
+
+.Box {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #FAF3F6;
+    background-image: url('../components/footer (2).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    /* padding-top: 10rem; */
+}
+
+.Container {
+    padding: 1rem;
+    margin-top: 0rem;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(200px, 1fr));
+    /* grid-gap: 10px; */
+    justify-content: space-around;
+    padding: 0 2rem;
+}
+
+.FooterLink {
+    color: rgb(0, 0, 0);
+    /* margin-bottom: 20px; */
+    font-size: 18px;
+    text-decoration: none;
+    align-self: center;
+    font-weight: bold;
+
+}
+
+.FooterLink:hover {
+    color: voilet;
+    transition: 200ms ease-in;
+}
+
+a {
+    margin-top: 0.5rem;
+}
+
+.Heading {
+    font-size: 24px;
+    color: black;
+    ;
+    margin-bottom: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@media (max-width: 1000px) {
+    .Box {
+        text-align: center;
+    }
+
+    .row {
+        grid-template-columns: repeat(auto-fill,
+                minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px){
+    .Box {
+            max-height: 25rem;
+            margin-bottom: 0.5rem;
+        }
+    
+        .row {
+            display: flex;
+            justify-content: space-around;
+        }
+    
+        .Heading {
+            font-size: 1.6rem;
+        }
+    
+        .FooterLink {
+            font-size: 1rem;
+        }
+        
+}
+
+@media (max-width: 640px) {
+    .Box {
+        max-height: 25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .row {
+        display: flex;
+        /* grid-gap: 10px; */
+        justify-content: space-around;
+        max-width: 50rem;
+    }
+
+    .Heading {
+        font-size: 1.3rem;
+        
+    }
+
+    .FooterLink {
+        font-size: 1rem;
+    }
+    a{
+        margin-top: 0.4rem;
+    }
+}
+
+/* new footer */
