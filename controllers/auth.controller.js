@@ -95,24 +95,30 @@ exports.signin = (req, res) => {
     const { id } = jwt_decode(token)
     const file = req.files.photo
     const data = await cloudinary.uploader.upload(file.tempFilePath);
-
+    console.log(data);
     if(data){
       const response = await User.findByIdAndUpdate({_id : id} , {pic : data.secure_url})
 
       if(!response){
+        console.log("helloooo")
         res.status(400).json("something went wrong")
+        
       }
 
       res.status(200).send(response)
     }
     else{
+      console.log("hello")
       res.status(400).json("something went wrong")
+      
     }
   }
 
 
   exports.addAddress = async(req,res) => {
     const {address} = req.body
+    console.log('the address is ',address)
+    //console.log(address)
     try {
       let token = req.headers["x-access-token"];
       const { id } = jwt_decode(token)
@@ -141,9 +147,9 @@ exports.signin = (req, res) => {
 
 exports.feedback=async(req,res)=>{
   const {  message , stars} = req.body;
-  const feedback = new Feedback({
+  const feedback = new Feedback({    
+    message,
     stars,
-    message
   })
   const data = await feedback.save()
   res.status(200).send(feedback);

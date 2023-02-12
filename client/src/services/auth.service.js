@@ -44,6 +44,7 @@ const addAddress = (address) => {
   return axios
     .post(API_URL + "address", { address }, { headers: authHeader() })
     .then((response) => {
+      console.log(response.data)
       return response.data;
     });
 };
@@ -64,9 +65,11 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
-const feedback = (message) => {
+const feedback = (message,stars) => {
   return axios.post(API_URL + "feedback", {
+    
     message,
+    stars,
   });
 };
 

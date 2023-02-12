@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "Light";   /*Can be any text*/
+    src: local("Arturo-Light_Trial"),
+      url("./font/Arturo-Light_Trial.ttf") format("truetype");
+  }
