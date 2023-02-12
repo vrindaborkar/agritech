@@ -26,15 +26,19 @@ useEffect(() => {
 
 const handleSubmitAddress = (e) => {
   e.preventDefault();
-  setLoading(true);
+  //setLoading(true);
+  
   let address = addressText.current.value;
-
+  //console.log("hello",address)
   if(address && address.length!==0){
     AuthService.addAddress(address).then(res=>{
       setuser(res);
+      console.log("user ",res)
       window.location.reload();
       setLoading(false);
+
     })
+     //console.log("hello inside submit")
   }
   settoggleAddress(!toggleAddress)
 }
@@ -47,9 +51,16 @@ const handleSubmit = (e) => {
   
   if(formData){
     AuthService.addimage(formData).then(res=>{
-      setuser(res);
+      if(!res){
+        console.log("Image not set")
+      }else{
+        setuser(res);
+      console.log(res);
+      
+      }
       window.location.reload();
       setLoading(false)
+      
     })
   }
   settoggleImage(!toggleImage)

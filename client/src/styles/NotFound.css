@@ -1,5 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+/* @import url("https://fonts.googleapis.com/css?family=Fira+Sans"); */
 /*Variables*/
+*{
+  font-family: 'Arturo' ;
+}
 .left-section .inner-content {
   position: absolute;
   top: 50%;

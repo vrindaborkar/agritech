@@ -7,6 +7,8 @@ import AuthService from "../services/auth.service";
 import Spinner from "../components/Spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import '../fonts/stylesheet.css'
+import '../styles/Styles.css'
 
 const user = AuthService.getCurrentUser();
 
@@ -152,15 +154,15 @@ export default function SignIn() {
             {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               </Avatar> */}
             <img className="form-logo" src="./logo.png" alt="form-logo" />
-            <Typography component="h1" variant="h5">
-              Welcome to Wingrowagritech
+            <Typography className="heading" component="h1" variant="h5">
+              Welcome to Wingrow Agritech
             </Typography>
-            <Typography mt={2} component="h1" variant="h5">
+            <Typography className="heading" mt={2} component="h1" variant="h5">
               Login here.
             </Typography>
             <TextField
               inputlabelprops={{
-                style: { fontSize: 16, fontFamily: "monospace" },
+                style: { fontSize: 16, fontFamily: "Arturo" },
               }}
               margin="normal"
               required

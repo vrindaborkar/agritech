@@ -52,10 +52,10 @@ const AdminHome = ({
   });
   let maxmarkets = 100;
     let maxStalls = 10000;
-    let maxPurchaseQty = 10000;
-    let maxPurchaseAmount = 500000;
-    let maxSalesAmount = 500000;
-    let maxSalesQty = 10000;
+    let maxPurchaseQty = 1000000;
+    let maxPurchaseAmount = 50000000;
+    let maxSalesAmount = 50000000;
+    let maxSalesQty = 1000000;
     const colors = {
       green: '#4CAF50',
       red: '#DB190C',
@@ -159,6 +159,7 @@ const AdminHome = ({
                        className='circularbar'
                         value={item.percent}
                         strokeWidth={6}
+                        text={`${item.percent}%`}
                         styles={buildStyles({
                             pathColor: item.percent < 50 ? colors.green : colors.green,
                             trailColor: '#d3d3d3',
@@ -166,9 +167,9 @@ const AdminHome = ({
                         })}
                     >
                       <br/>
-                        <div className="summary-box__chart__value">
+                        {/* <div className="summary-box__chart__value">
                             {item.percent}%
-                        </div>
+                        </div> */}
                     </CircularProgressbarWithChildren>
                   </>
                 }
@@ -181,7 +182,7 @@ const AdminHome = ({
               <div className="quantity">
             <h2>Quantity</h2>
             {filteredInData && filteredOutData && (
-              <div className="total-quantity">
+              <div >
                
                 {/* <Card header={"Purchase:"} value={purchaseQty} />
                 <Card header={"Sales:"} value={salesQty} /> */}
@@ -197,6 +198,7 @@ const AdminHome = ({
                        className='circularbar'
                         value={item.percent}
                         strokeWidth={6}
+                        text={`${item.percent}%`}
                         styles={buildStyles({
                             pathColor: item.percent < 50 ? colors.green : colors.green,
                             trailColor: '#d3d3d3',
@@ -204,9 +206,9 @@ const AdminHome = ({
                         })}
                     >
                       <br/>
-                        <div className="summary-box__chart__value">
+                        {/* <div className="summary-box__chart__value">
                             {item.percent}%
-                        </div>
+                        </div> */}
                     </CircularProgressbarWithChildren>
                   </>
                 }
@@ -224,7 +226,7 @@ const AdminHome = ({
                 <Card header={"Sales:"} value={salesAmount} /> */}
                 {
           data3.summary.map((item, index) => {
-            return(<div key={`summary-${index}`}  >
+            return(<div key={`summary-${index}`} className="sub_overalldata" >
                 {
                   <>
                   <span>{item.title} </span>
@@ -234,6 +236,7 @@ const AdminHome = ({
                        className='circularbar'
                         value={item.percent}
                         strokeWidth={6}
+                        text={`${item.percent}%`}
                         styles={buildStyles({
                             pathColor: item.percent < 50 ? colors.green : colors.green,
                             trailColor: '#d3d3d3',
@@ -241,9 +244,9 @@ const AdminHome = ({
                         })}
                     >
                       <br/>
-                        <div className="summary-box__chart__value">
+                        {/* <div >
                             {item.percent}%
-                        </div>
+                        </div> */}
                     </CircularProgressbarWithChildren>
                   </>
                 }

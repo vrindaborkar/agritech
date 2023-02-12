@@ -1,6 +1,6 @@
 *{
-  font-family: Karla,
-    sans-serif;
+  font-family: 'Arturo' ;
+   
 }
 .home_container{
     width: 100%;
@@ -477,7 +477,7 @@ a{
   background-size: 200% auto;
   animation: changeColor 2s linear;
   transition: transform .3s ease;
-background-color: transparent;
+  background-color: transparent;
   animation: color-change 2s linear;
   animation-fill-mode: forwards;
   box-shadow: rgba(0, 0, 0, 0.03) 0px 6px 24px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;

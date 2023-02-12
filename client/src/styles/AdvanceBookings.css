@@ -1,3 +1,6 @@
+*{
+    font-family: 'Arturo' ;
+}
 .advance_main_container {
     width: 100%;
     flex-direction: column;

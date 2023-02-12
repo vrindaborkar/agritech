@@ -1,3 +1,6 @@
+*{
+    font-family: 'Arturo' ;
+}
 .bookings_container{
     min-height: 90vh;
     width: 100%;
