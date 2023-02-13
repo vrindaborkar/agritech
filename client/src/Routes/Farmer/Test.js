@@ -48,9 +48,9 @@ function Test({ setbookingDetails , setValue }) {
     FarmerService.getBookedStalls().then((response) => {
      const res = response.data && response.data.filter((e) => e.location === `${Id}`);
      setAlreadyBooked(response.data);
-     setAlreadyBookedLocation(res.length-1);
+     setAlreadyBookedLocation(res.length);
      
-      console.log("already booked",res.length-1);
+      console.log("already booked",res.length);
     
     });
     handleOpen(true);
