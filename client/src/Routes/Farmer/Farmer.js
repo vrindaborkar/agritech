@@ -9,7 +9,6 @@ import OutwardData from "./OutwardData";
 import StallsPlaces from "./StallsPlaces";
 import Test from "./Test";
 import Ticket from "./Ticket";
-import FarmerNav from "./FarmerNav";
 import FarmerNavigation from "./FarmerNavigation";
 
 const Farmer = () => {
@@ -20,30 +19,41 @@ const Farmer = () => {
     BookedStalls: null,
     stallsBooked: null,
     totalAmount: null,
-    address :"",
   });
 
   return (
     <Routes>
-      <Route path="/" element={<FarmersMain />}>
-        <Route index element={<FarmerNavigation />} />
-        <Route path="/stallplaces" element={<StallsPlaces />} />
+      <Route path="/" element={<FarmersMain 
+      />}>
+        <Route index element={<FarmerNavigation
+        />} />
         <Route
           path="stallplaces/stalls/:Id"
-          element={<Test setbookingDetails={setbookingDetails} />}
+          element={<Test setbookingDetails={setbookingDetails} 
+          />}
         />
-        <Route path="/farmershome" element={<FarmersHome />} />
-        <Route path="/inward" element={<InwardData />} />
+        <Route path="/farmershome" element={<FarmersHome
+         />} />
+        <Route path="/inward" element={<InwardData 
+        />} />
+        <Route 
+        path="/stallplaces" 
+        element={<StallsPlaces />} 
+        />
         <Route
           path="/advancebookings"
-          element={<AdvanceBookings setbookingDetails={setbookingDetails} />}
+          element={<AdvanceBookings setbookingDetails={setbookingDetails}
+          />}
         />
-        <Route path="/outward" element={<OutwardData />} />
+        <Route path="/outward" element={<OutwardData 
+        />} />
         <Route
           path="/ticket"
-          element={<Ticket bookingDetails={bookingDetails} />}
+          element={<Ticket bookingDetails={bookingDetails} 
+          />}
         />
-        <Route path="/mybookings" element={<MyBookings />} />
+        <Route path="/mybookings" element={<MyBookings 
+        />} />
       </Route>
     </Routes>
   );

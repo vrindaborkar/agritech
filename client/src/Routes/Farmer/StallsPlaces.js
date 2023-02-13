@@ -27,7 +27,7 @@ useEffect(() => {
 
   const handleClick = (ev) => {
     const Id = ev.target.id
-    navigate(`./stalls/${Id}`)
+    navigate(`stalls/${Id}`)
   }
 
 

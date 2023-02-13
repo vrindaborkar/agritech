@@ -31,7 +31,7 @@ const locations = [
   { location: "Bramhasun City" },
 ];
 
-const AdvanceBookings = ({ setbookingDetails,setValue }) => {
+const AdvanceBookings = ({ setbookingDetails, setValue }) => {
   const [location, setlocation] = useState("");
   const navigate = useNavigate();
   const [data, setdata] = useState();
@@ -44,7 +44,7 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
 
 
 
-  const handleChange = (e , newValue) => {
+  const handleChange = (e, newValue) => {
     setNumberOfSeats(e.nativeEvent.data);
     setValue(newValue);
   };
@@ -227,9 +227,9 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
   };
 
   return (
-    
+
     <div className="Test">
-      
+
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -242,7 +242,7 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
         pauseOnHover
         theme="light"
       />
-      
+
       <Link to="../" className="advancebookinglinkback">
         Go Back to stalls!
       </Link>
@@ -268,7 +268,7 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
               className="textfield"
             />
           </Grid>
-          <Grid  className="select-market-grid" item xs={12} sm={6}>
+          <Grid className="select-market-grid" item xs={12} sm={6}>
             <FormControl className="formcontrol" sx={{ width: "100%", fontSize: 14 }}>
               <InputLabel color="success" className="stall-booking-lable">
                 Market
@@ -296,65 +296,65 @@ const AdvanceBookings = ({ setbookingDetails,setValue }) => {
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
-                <InputLabel className="stall-booking-lable">
-                  Number Of Stall Required
-                </InputLabel>
-                <TextField
-                  inputlabelprops={{
-                    style: { fontSize: 14, fontFamily: "monospace" },
-                  }}
-                  name="number-of-stalls-req"
-                  required
-                  placeholder="00"
-                  fullWidth
-                  type="number"
-                  id="number-of-stalls-req"
-                  autoFocus
-                  color="success"
-                  className="textfield"
-                  onChange={handleChange}
-                />
-              </Grid>
+            <InputLabel className="stall-booking-lable">
+              Number Of Stall Required
+            </InputLabel>
+            <TextField
+              inputlabelprops={{
+                style: { fontSize: 14, fontFamily: "monospace" },
+              }}
+              name="number-of-stalls-req"
+              required
+              placeholder="00"
+              fullWidth
+              type="number"
+              id="number-of-stalls-req"
+              autoFocus
+              color="success"
+              className="textfield"
+              onChange={handleChange}
+            />
+          </Grid>
         </Grid>
 
         <div className="secondary_container_stalls">
           {UpdatedData && location !== "" ? (
             <Grid className="stalls-count-cantainer">
-            <div className="stall_wrapper">
-                     
-                        <div className="StallsContainer">
-                          <Stall
-                            data={UpdatedData.slice(0, 16)}
-                            handleClick={handleClick}
-                            bookedStalls={bookedStalls}
-                            alreadyBooked={alreadyBooked}
-                            date={dayjs(Date.now()).format("YYYY-MM-DD")}
-                          />
-                          <Stall
-                            data={UpdatedData.slice(16, 17)}
-                            handleClick={handleClick}
-                            bookedStalls={bookedStalls}
-                            alreadyBooked={alreadyBooked}
-                            date={dayjs(Date.now()).format("YYYY-MM-DD")}
-                          />
-                          <Stall
-                            data={UpdatedData.slice(17, 18)}
-                            handleClick={handleClick}
-                            bookedStalls={bookedStalls}
-                            alreadyBooked={alreadyBooked}
-                            date={dayjs(Date.now()).format("YYYY-MM-DD")}
-                          />
-                          <Stall
-                            data={UpdatedData.slice(18, 34)}
-                            handleClick={handleClick}
-                            bookedStalls={bookedStalls}
-                            alreadyBooked={alreadyBooked}
-                            date={dayjs(Date.now()).format("YYYY-MM-DD")}
-                          />
-                        </div>
-                    </div>
+              <div className="stall_wrapper">
+
+                <div className="StallsContainer">
+                  <Stall
+                    data={UpdatedData.slice(0, 16)}
+                    handleClick={handleClick}
+                    bookedStalls={bookedStalls}
+                    alreadyBooked={alreadyBooked}
+                    date={dayjs(Date.now()).format("YYYY-MM-DD")}
+                  />
+                  <Stall
+                    data={UpdatedData.slice(16, 17)}
+                    handleClick={handleClick}
+                    bookedStalls={bookedStalls}
+                    alreadyBooked={alreadyBooked}
+                    date={dayjs(Date.now()).format("YYYY-MM-DD")}
+                  />
+                  <Stall
+                    data={UpdatedData.slice(17, 18)}
+                    handleClick={handleClick}
+                    bookedStalls={bookedStalls}
+                    alreadyBooked={alreadyBooked}
+                    date={dayjs(Date.now()).format("YYYY-MM-DD")}
+                  />
+                  <Stall
+                    data={UpdatedData.slice(18, 34)}
+                    handleClick={handleClick}
+                    bookedStalls={bookedStalls}
+                    alreadyBooked={alreadyBooked}
+                    date={dayjs(Date.now()).format("YYYY-MM-DD")}
+                  />
+                </div>
+              </div>
             </Grid>
-           ) : (
+          ) : (
             <div className="select_market">
               <h2>Please select the market</h2>
             </div>

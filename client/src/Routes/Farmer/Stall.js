@@ -14,37 +14,38 @@ const Stall = ({ data, handleClick, bookedStalls, alreadyBooked, date }) => {
           let stallClass;
           if (isBooked) {
             stallClass = "booked";
-          } else if (stallPrice === 100){
+          } else if (stallPrice === 100) {
             stallClass = "hundred";
-          } else if (stallPrice === 300){
+          } else if (stallPrice === 300) {
             stallClass = "three-hundred";
           }
-          else if (stallPrice === 500){
+          else if (stallPrice === 500) {
             stallClass = "five-hundred";
-          }else {
+          } else {
             stallClass = "available";
           }
-          
+
           if (isSelected && !isBooked) {
             stallClass = "selected";
           }
 
           return (
             // <div className={stallClass}>
-            <div style={{cursor:"pointer"}} className="single-stall">
+            <div style={{ cursor: "pointer" }} className="single-stall">
+
               <img
-            className="stall-img"
-            src="../../images/stand.png"
-            alt="logo"
-          />
-          <div onClick={handleClick} id={_id} key={i}>
+                className="stall-img"
+                src="../../../images/stand.png"
+                alt="logo"
+              />
+              <div onClick={handleClick} id={_id} key={i}>
                 {stallName}
                 <br />
                 Rs.{stallPrice}
               </div>
-            <div className={stallClass}>
-            
-            </div>
+              <div className={stallClass}>
+
+              </div>
             </div>
           );
         })}

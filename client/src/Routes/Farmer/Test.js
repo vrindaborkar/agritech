@@ -377,9 +377,9 @@ function Test({ setbookingDetails , setValue }) {
 // }
   return (
     <>
-      <Link style={{ marginTop: '10px' }} className="backbtn green" to="/farmers" >
+      {/* <Link style={{ marginTop: '10px' }} className="backbtn green" to="/farmers" >
         Back
-      </Link>
+      </Link> */}
       {!Loading ? (
         
         <div className="Test">
